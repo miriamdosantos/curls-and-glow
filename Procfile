@@ -1,1 +1,1 @@
-web: gunicorn codestar.wsgi
+web: gunicorn curls_and_glow.wsgi
