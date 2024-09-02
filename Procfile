@@ -1,1 +1,1 @@
-web: gunicorn curls_and_glow.wsgi
+web: gunicorn curlsandgrow.wsgi
