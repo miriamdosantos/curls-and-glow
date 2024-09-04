@@ -1,10 +1,6 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from cloudinary.models import CloudinaryField
 # Create your models here.
-
 class Stylish(models.Model):
     name = models.CharField(max_length=200)
     bio = models.TextField()
@@ -34,8 +30,3 @@ class Availability(models.Model):
     
     def __str__(self):
         return f"{self.day_of_week} {self.start_time} to {self.end_time}"
-
-
-
-
-
