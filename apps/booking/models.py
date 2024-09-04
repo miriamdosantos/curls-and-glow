@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 from apps.users.models import UserProfile
 from apps.services.models import Service
 from apps.stylishs.models import Stylish
