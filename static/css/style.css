@@ -1,0 +1,139 @@
+
+/* Reset */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Global styles for body, headings and paragraph */
+body{
+  font-family: 'Lato', sans-serif;
+    color: #3e2a25;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+  text-decoration: none;
+  color:#b76e79
+}
+
+a:hover{
+  color:#c69c7b
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif ;
+    color: #4A474E;
+}
+
+
+/* Header */
+.logo {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border-color: #b76e79;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  object-fit: cover;
+}
+
+.logo-div {
+  width: 250px;
+  height: 150px;
+  margin-top: 30px;
+  padding-bottom: 10px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+/* Customização da Navegação */
+#mainNav .navbar-nav .nav-item .nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #3e2a25;
+  font-weight: 500;
+  padding: 15px;
+  letter-spacing: 0.0625em;
+}
+
+/* Navbar Styles */
+.nav-item:hover {
+  font-weight: bolder;
+  transform: scale(1.2);
+}
+
+/* Custom CSS for Dropdown */
+.dropdown-toggle {
+  background-color: #b76e79;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 25px;
+}
+
+.dropdown-toggle:hover {
+  background-color: #a65b6e;
+}
+
+.dropdown-item {
+  color: #3e2a25;
+  padding: 10px 15px;
+}
+
+#mainNav {
+  padding: 5px 0;
+}
+
+#mainNav .dropdown {
+  margin-left: 20px;
+}
+
+#mainNav .dropdown-menu {
+  background-color: #f7efe5;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .dropdown-item:hover {
+  background-color: #d1c6b4;
+  color: #3e2a25;
+}
+
+ul.navbar-nav .nav-item {
+   /* Margem inferior para cada item */
+  margin-left: 3.1rem;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 40px 0; /* Add some padding to the footer */
+}
+
+.footer-title {
+  font-weight: bold; /* Make the title bold */
+  margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.social-links a {
+   /* Set the color of the social links */
+  font-size: 24px; /* Increase the size of the icons */
+  margin: 0 10px; /* Add some spacing between the icons */
+  transition: color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.fa-ul i{
+  color:#b76e79;
+}
