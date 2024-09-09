@@ -95,8 +95,9 @@ h6 {
   margin-left: 20px;
 }
 
-#mainNav .dropdown-menu {
+#mainNav .dropdown .dropdown-menu {
   background-color: #f7efe5;
+  width: 188px;
 }
 
 #mainNav .nav-link:hover,
