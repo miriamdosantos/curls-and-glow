@@ -71,7 +71,7 @@
                         <li><a class="dropdown-item" href="#">Book an appointment</a></li>
                         <li><a class="dropdown-item  " href="#">My bookings</a></li>
                         <li><a class="dropdown-item " href="#">My Profile</a></li>
-                        <li><a class="dropdown-item {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a></li>
+                        <li><a class="dropdown-item " href="{% url 'account_logout' %}">Logout</a></li>
                     </ul>
                 </div>
                 {% else %}
@@ -82,18 +82,21 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a></li>
-                        <li><a class="dropdown-item {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a></li>
+                        <li><a class="dropdown-item {% if request.path == login_url %}active-nav{% endif %}" href="{% url 'account_login' %}">Login</a></li>
                     </ul>
                 </div>
                 {% endif %}
             </div>
         </div>
     </nav>
+    
     <!-- Main content -->
     <main>
         <div class="container">
             {% block content %}
             <!-- Content Goes here -->
+             <!-- Hero Image & Text Overlay -->
+        
             {% endblock content %}
         </div>
     </main>
@@ -154,7 +157,7 @@
         </div>
 
         <!-- Copyright -->
-        <div class="text-center p-3 copyright" style="color:#b76e79;">
+        <div class="text-center p-3 copyright" style="color:#c69c7b;">
             © 2024 Copyright Miriam McCay
         </div>
     </footer>

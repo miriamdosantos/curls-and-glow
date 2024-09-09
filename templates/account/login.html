@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% load i18n %}
+
+
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div col-12 id="hero" aria-label="brown curl woman">
+    </div>
+  </div>
+</div>
+<div class="container container-background">
+  <div class="container-form">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center">
+        <h1>{% trans "Sign In" %}</h1>
+        <p>{% blocktrans %}Welcome back, Beautiful! Ready to treat yourself? Sign in to view or schedule your next
+          appointment</p>
+        <p>And let us take care of the rest. Your beauty journey is just a click away!</p>
+        {% endblocktrans %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center ">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          <button class="primaryAction page-buttons" type="submit">{% trans "Sign In" %}</button>
+        </form>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+          <p>You don't have an account? Then please <a href="{% url 'account_signup' %}" class="link">Register
+              &raquo; &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

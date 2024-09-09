@@ -12,15 +12,16 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
 }
 
 a{
   text-decoration: none;
-  color:#b76e79
+  color:#c69c7b
 }
 
 a:hover{
-  color:#c69c7b
+  color:#b76e79
 }
 h1,
 h2,
@@ -61,6 +62,7 @@ h6 {
   color: #3e2a25;
   font-weight: 500;
   padding: 15px;
+  margin: 1rem 0;
   letter-spacing: 0.0625em;
 }
 
@@ -84,7 +86,7 @@ h6 {
 
 .dropdown-item {
   color: #3e2a25;
-  padding: 10px 15px;
+  padding: 5px 15px;
 }
 
 #mainNav {
@@ -95,7 +97,7 @@ h6 {
   margin-left: 20px;
 }
 
-#mainNav .dropdown .dropdown-menu {
+#mainNav .dropdown .dropdown-menu  {
   background-color: #f7efe5;
   width: 188px;
 }
@@ -104,19 +106,83 @@ h6 {
 #mainNav .dropdown-item:hover {
   background-color: #d1c6b4;
   color: #3e2a25;
+  max-width: 8rem;
 }
 
 ul.navbar-nav .nav-item {
    /* Margem inferior para cada item */
   margin-left: 3.1rem;
+ 
 }
+
+
 
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
 }
+/* Hero styles */
+#hero {
+  margin: 1rem 0;
+  
+  height: 5rem;
+  width: 100%;
+  background: url('/static/images/Curls\ &\ Grow\ -\ Finalization.png') no-repeat left center/cover;
+  position: relative;
+  /* Background colour if image doesn't load */
+  background-color:#a65b6e
+}
+.container-background{
+  background-color: #f7efe5;
+  width: 60%;
+  margin-bottom: 3rem;
+}
 
+.sign-up {
+  color: #4a474e;
+  background-color: rgba(205, 172, 93, .5);
+  padding: 20px 15px 0px 10px;
+  margin-bottom: 30px;
+}
+/* Fundo do Formulário */
+
+/* Botão de Envio */
+form button[type="submit"] {
+  background-color: #b76e79; /* Rose Gold - Fundo do botão */
+  color: #ffffff; /* Texto Branco */
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #c69c7b; /* Soft Bronze - Hover no botão */
+}
+
+/* Campos Desabilitados */
+form input:disabled {
+  background-color: #e5d3c3; /* Warm Beige - Fundo dos campos desabilitados */
+  color: #b76e79; /* Rose Gold - Texto dos campos desabilitados */
+  border-color: #f7efe5; /* Light Cream - Borda dos campos desabilitados */
+}
+
+
+/* Next, Previous, Back, Edit Comment, Jump button */
+.page-buttons,
+.edit-button {
+    color: #ffffff;
+    background-color: #b76e79;
+    letter-spacing: 2px;
+    border: none;
+    transition-duration: 0.5s;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    font-size: 80%;
+}
 /* Footer Styles */
 footer {
   background-color: #f8f9fa; /* Light background color */
@@ -136,5 +202,11 @@ footer {
 }
 
 .fa-ul i{
-  color:#b76e79;
+  color:#c69c7b;
+}
+
+@media (min-width: 992px) {
+  #hero{
+    height: 15rem;;
+  }
 }
