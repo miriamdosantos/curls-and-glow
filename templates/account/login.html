@@ -7,6 +7,7 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
 
 {% block content %}
+{% include 'includes/messages.html' %}
 
 <div class="container">
   <div class="row">
@@ -40,8 +41,7 @@
       </div>
       <div class="row">
         <div class="col-md-6 offset-md-3 text-center">
-          <p>You don't have an account? Then please <a href="{% url 'account_signup' %}" class="link">Register
-              &raquo; &raquo;</a></p>
+          <p>You don't have an account? Then please <a href="{% url 'account_signup' %}" class="link">Register&raquo;</a></p>
         </div>
       </div>
     </div>

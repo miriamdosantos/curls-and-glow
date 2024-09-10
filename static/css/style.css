@@ -62,8 +62,9 @@ h6 {
   color: #3e2a25;
   font-weight: 500;
   padding: 15px;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   letter-spacing: 0.0625em;
+  max-width: 8rem;
 }
 
 /* Navbar Styles */
@@ -74,11 +75,13 @@ h6 {
 
 /* Custom CSS for Dropdown */
 .dropdown-toggle {
+  border: none;
   background-color: #b76e79;
   color: white;
   padding: 10px 15px;
   margin-right: 8rem;
-  width: 215px; /* Define a mesma largura que o menu dropdown */
+  border-radius: 15px;
+  min-width: fit-content; /* Define a mesma largura que o menu dropdown */
 }
 
 .dropdown-toggle:hover {
@@ -93,9 +96,10 @@ h6 {
 #mainNav .dropdown-menu {
   background-color: #f7efe5;
   width: 100%; /* Ajusta a largura do menu para ocupar 100% do pai */
-  max-width: 215px; /* Define um limite máximo para a largura */
+  max-width: 230px; /* Define um limite máximo para a largura */
   font-size: 1.3rem;
-  min-height: 8rem;
+  max-height: 300px; /* Define uma altura máxima para o menu */
+  
 }
 
 #mainNav .dropdown .dropdown-menu .dropdown-item {
@@ -211,13 +215,22 @@ footer {
     height: 8rem;
   }
 }
+@media (max-width: 768px) {
+  #mainNav .dropdown-menu {
+    min-height: 50%;
+    
+  }
+}
 @media (min-width: 768px) {
   /* Styles for tablets and medium devices */
   #mainNav .nav-link:hover,
 #mainNav .dropdown-item:hover {
   background-color: #d1c6b4;
   color: #3e2a25;
-  max-width: 13rem;
+  max-width: 18rem;
+}
+#mainNav .dropdown-menu{
+width: 210px;
 }
 #hero{
   height: 10rem;
