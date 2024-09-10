@@ -1,21 +1,39 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="container">
+  <div class="row">
+    <div col-12 id="hero" aria-label="brown curl woman">
+    </div>
+  </div>
+</div>
+<div class="container container-background">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <h1>{% trans "Sign Up" %}</h1>
+      <h2>Welcome to a new you!</h2>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+      <p>{% blocktrans %}
+        Sign up now to easily book services and acess excelsis offers.
+        Transform your beauty routine into a luxurious experiences with justa few clicks</p>
+      <p>If you already have an account, please <a href="{{ login_url }}">Sign In here</a>.{% endblocktrans %}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="page-buttons" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock content %}
