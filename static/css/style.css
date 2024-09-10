@@ -62,7 +62,7 @@ h6 {
   color: #3e2a25;
   font-weight: 500;
   padding: 15px;
-  margin: 1rem 0;
+  margin: 2rem 0;
   letter-spacing: 0.0625em;
 }
 
@@ -99,8 +99,22 @@ h6 {
 
 #mainNav .dropdown .dropdown-menu  {
   background-color: #f7efe5;
-  width: 188px;
+  width: 14rem;
+  font-size: 1.22rem;
+  min-height: 5rem;
+  
+  
+  
+  
+  
 }
+
+#mainNav .dropdown .dropdown-menu .dropdown-item{
+  margin: 0.5rem 0;
+  
+}
+
+
 
 #mainNav .nav-link:hover,
 #mainNav .dropdown-item:hover {
@@ -126,16 +140,19 @@ main {
 #hero {
   margin: 1rem 0;
   
-  height: 5rem;
+  height: 4.5rem;
   width: 100%;
   background: url('../images/hero-image.png') no-repeat left center/cover;
   position: relative;
   /* Background colour if image doesn't load */
-  background-color:#a65b6e
+  background-color:#a65b6e;
+  
+  
 }
 .container-background{
   background-color: #f7efe5;
-  width: 60%;
+  min-width: 250px;
+  max-width: 70%;
   margin-bottom: 3rem;
 }
 
@@ -204,9 +221,25 @@ footer {
 .fa-ul i{
   color:#c69c7b;
 }
-
+@media (min-width: 575.98px) {
+  #hero{
+    height: 8rem;
+  }
+}
+@media (min-width: 768px) {
+  /* Styles for tablets and medium devices */
+  #mainNav .nav-link:hover,
+#mainNav .dropdown-item:hover {
+  background-color: #d1c6b4;
+  color: #3e2a25;
+  max-width: 13rem;
+}
+#hero{
+  height: 10rem;
+}
+}
 @media (min-width: 992px) {
   #hero{
-    height: 15rem;;
+    height: 15rem;
   }
 }
