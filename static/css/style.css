@@ -1,39 +1,40 @@
-
 /* Reset */
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-/* Global styles for body, headings and paragraph */
-body{
+
+/* Global styles for body, headings, and paragraph */
+body {
   font-family: 'Lato', sans-serif;
-    color: #3e2a25;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
+  color: #3e2a25;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
 }
 
-a{
+a {
   text-decoration: none;
-  color:#c69c7b
+  color: #c69c7b;
 }
 
-a:hover{
-  color:#b76e79
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Playfair Display', serif ;
-    color: #4A474E;
+a:hover {
+  color: #b76e79;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: #4A474E;
+}
 
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  color: #3e2a25;
+  margin-bottom: 1.2rem; 
+}
 /* Header */
 .logo {
   height: 100%;
@@ -81,7 +82,7 @@ h6 {
   padding: 10px 15px;
   margin-right: 8rem;
   border-radius: 15px;
-  min-width: fit-content; /* Define a mesma largura que o menu dropdown */
+  min-width: fit-content;
 }
 
 .dropdown-toggle:hover {
@@ -95,11 +96,10 @@ h6 {
 
 #mainNav .dropdown-menu {
   background-color: #f7efe5;
-  width: 100%; /* Ajusta a largura do menu para ocupar 100% do pai */
-  max-width: 230px; /* Define um limite máximo para a largura */
+  width: 100%; 
+  max-width: 230px; 
   font-size: 1.3rem;
-  max-height: 300px; /* Define uma altura máxima para o menu */
-  
+  max-height: 300px; 
 }
 
 #mainNav .dropdown .dropdown-menu .dropdown-item {
@@ -113,50 +113,85 @@ h6 {
 }
 
 ul.navbar-nav .nav-item {
-   /* Margem inferior para cada item */
   margin-left: 3.1rem;
- 
 }
-
-
 
 main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
 }
+
 /* Hero styles */
 #hero {
   margin: 1rem 0;
-  
   height: 4.5rem;
   width: 100%;
   background: url('../images/hero-image.png') no-repeat left center/cover;
   position: relative;
-  /* Background colour if image doesn't load */
-  background-color:#a65b6e;
-  
-  
+  background-color: #a65b6e; /* Background colour if image doesn't load */
 }
-.container-background{
+
+.container-background {
   background-color: #f7efe5;
   min-width: 250px;
   max-width: 70%;
   margin-bottom: 3rem;
 }
 
-.sign-up {
-  color: #4a474e;
-  background-color: rgba(205, 172, 93, .5);
-  padding: 20px 15px 0px 10px;
-  margin-bottom: 30px;
-}
-/* Fundo do Formulário */
+/* Custom Carousel */
+/* Carousel Control Styles */
 
-/* Botão de Envio */
+
+.carousel-item img {
+  width: 100%;
+  height: 430px; 
+  object-fit: cover; 
+}
+.carousel-caption {
+  position: absolute;
+  top: 19.7rem; 
+  
+}
+.carousel-indicators{
+  position: absolute;
+  top:25rem;
+}
+.carousel-caption h5,
+.carousel-caption p{
+  margin-bottom: -0.4rem;
+  color: #fff; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+  text-align: justify;
+}
+
+.carousel-caption h5{
+  font-weight: bolder;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; 
+  color: #aa7750; 
+  font-size: 3.2rem; 
+  filter: invert(1); 
+}
+
+/* Definição de ícones padrão do Bootstrap */
+.carousel-control-prev-icon::before {
+  content: '\2039'; 
+}
+
+.carousel-control-next-icon::before {
+  content: '\203A'; 
+}
+
+
+/* --------- Forms buttons styles --------- */
 form button[type="submit"] {
-  background-color: #b76e79; /* Rose Gold - Fundo do botão */
-  color: #ffffff; /* Texto Branco */
+  background-color: #b76e79; 
+  color: #ffffff; 
   font-family: 'Montserrat', sans-serif;
   padding: 12px 20px;
   border: none;
@@ -166,78 +201,126 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-  background-color: #c69c7b; /* Soft Bronze - Hover no botão */
+  background-color: #c69c7b; 
 }
 
-/* Campos Desabilitados */
+/* input disabled */
 form input:disabled {
-  background-color: #e5d3c3; /* Warm Beige - Fundo dos campos desabilitados */
-  color: #b76e79; /* Rose Gold - Texto dos campos desabilitados */
-  border-color: #f7efe5; /* Light Cream - Borda dos campos desabilitados */
+  background-color: #e5d3c3; 
+  color: #b76e79; 
+  border-color: #f7efe5;
+} 
+
+/* Sign Up/ Sign In/ Logout - button sytle */
+.page-buttons {
+  color: #ffffff;
+  background-color: #b76e79;
+  letter-spacing: 2px;
+  border: none;
+  transition-duration: 0.5s;
+  margin-bottom: 20px;
+  padding: 8px 15px;
+  font-size: 80%;
+}
+.sign-up {
+  color: #4a474e;
+  background-color: rgba(205, 172, 93, .5);
+  padding: 20px 15px 0px 10px;
+  margin-bottom: 30px;
+}
+/* Custom Button Style for Index Page */
+/* Base button class (used for all button styles) */
+.btn-base {
+  color: #ffffff; 
+  padding: 12px 24px; 
+  border-radius: 6px; 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  transition: background-color 0.3s ease, border-color 0.3s ease; 
+  cursor: pointer; 
+  border: 2px solid transparent; 
+}
+
+/* Color variations */
+.btn-dark-brown {
+  background-color: #3e2a25; 
+  border-color: #3e2a25; 
+}
+
+.btn-dark-brown:hover {
+  background-color: #4a474e; 
+  border-color: #4a474e; 
+  color: #f7efe5; 
+}
+
+/* Size variations */
+.btn-small {
+  padding: 8px 16px; 
+  font-size: 0.8rem; 
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.2rem; 
 }
 
 
-/* Next, Previous, Back, Edit Comment, Jump button */
-.page-buttons,
-.edit-button {
-    color: #ffffff;
-    background-color: #b76e79;
-    letter-spacing: 2px;
-    border: none;
-    transition-duration: 0.5s;
-    margin-bottom: 20px;
-    padding: 8px 15px;
-    font-size: 80%;
-}
+
+
+
+
+
+
 /* Footer Styles */
 footer {
-  background-color: #f8f9fa; /* Light background color */
-  padding: 40px 0; /* Add some padding to the footer */
+  background-color: #f8f9fa; 
+  padding: 40px 0; 
 }
 
 .footer-title {
-  font-weight: bold; /* Make the title bold */
-  margin-bottom: 20px; /* Add some spacing below the title */
+  font-weight: bold; 
+  margin-bottom: 20px; 
 }
 
 .social-links a {
-   /* Set the color of the social links */
-  font-size: 24px; /* Increase the size of the icons */
-  margin: 0 10px; /* Add some spacing between the icons */
-  transition: color 0.3s ease; /* Add a smooth transition effect */
+  font-size: 24px; 
+  margin: 0 10px; 
+  transition: color 0.3s ease; 
 }
 
-.fa-ul i{
-  color:#c69c7b;
+.fa-ul i {
+  color: #c69c7b;
 }
+
+/* Media Queries */
 @media (min-width: 575.98px) {
-  #hero{
+  #hero {
     height: 8rem;
   }
 }
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    max-height: 14rem;
+  }
+}
+
 @media (max-width: 768px) {
   #mainNav .dropdown-menu {
     min-height: 50%;
-    
   }
 }
+
 @media (min-width: 768px) {
-  /* Styles for tablets and medium devices */
-  #mainNav .nav-link:hover,
-#mainNav .dropdown-item:hover {
-  background-color: #d1c6b4;
-  color: #3e2a25;
-  max-width: 18rem;
+  #hero {
+    height: 10rem;
+  }
 }
-#mainNav .dropdown-menu{
-width: 210px;
-}
-#hero{
-  height: 10rem;
-}
-}
+
 @media (min-width: 992px) {
-  #hero{
+  #hero {
     height: 15rem;
   }
 }
