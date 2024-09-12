@@ -27,6 +27,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   color: #4A474E;
+  font-size: 2rem;
 }
 
 p {
@@ -187,7 +188,20 @@ main {
   content: '\203A'; 
 }
 
-
+.card-body{
+  height: 378px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd; /* Borda suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.card-body > h3 {
+  animation: blink 1s infinite; /* Ajuste a duração e a repetição conforme necessário */
+}
 /* --------- Forms buttons styles --------- */
 form button[type="submit"] {
   background-color: #b76e79; 
