@@ -14,5 +14,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll('.block');
+    const slides = document.querySelectorAll('.block-slide');
+
+    function handleScroll() {
+        blocks.forEach(block => {
+            const rect = block.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                if (!block.classList.contains('animated')) {
+                    block.classList.add('animated');
+                }
+            }
+        });
+
+        slides.forEach(slide => {
+            const rect = slide.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                if (!slide.classList.contains('animated')) {
+                    slide.classList.add('animated');
+                }
+            }
+        });
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    // Run handleScroll on initial load
+    handleScroll();
+});
 
 
+var myCarousel = document.getElementById('carouselExampleCaptions');
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 3000,  // Intervalo em milissegundos (3000 ms = 3 segundos)
+    ride: 'carousel'
+});
