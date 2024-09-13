@@ -27,9 +27,12 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   color: #4A474E;
+  
+}
+.services-section h2,
+.offers-section h2:first-of-type{
   font-size: 2rem;
 }
-
 p {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
@@ -189,10 +192,26 @@ main {
 }
 
 .card-body{
-  height: 378px;
+  height: 300px;
   background-color: #f0f0f0;
   border: 1px solid #ddd; /* Borda suave */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+.card img{
+  height: 450px;
+  object-fit: cover;
+}
+.card-img-overlay .card-title{
+  position: absolute;
+  top:24rem;
+  left:2rem;
+  font-size: 1.8rem;
+  color:black;
+  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5); 
+  background-color: #b76e79;
+  padding: 5px 2px;
+  border-radius: 2px;
+  
 }
 @keyframes blink {
   0% { opacity: 1; }
@@ -201,6 +220,22 @@ main {
 }
 .card-body > h3 {
   animation: blink 1s infinite; /* Ajuste a duração e a repetição conforme necessário */
+}
+/* --- https://www.youtube.com/watch?v=0TnO1GzKWPc -- */
+@keyframes appear{
+  from{
+    opacity:0;
+    scale:0.5;
+  }
+  to{
+    opacity:1;
+    scale:1;
+  }
+}
+.block{
+  animation: appear  linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
 }
 /* --------- Forms buttons styles --------- */
 form button[type="submit"] {
@@ -337,4 +372,10 @@ footer {
   #hero {
     height: 15rem;
   }
+}
+@media (min-width: 992px) {
+.card-body{
+  height: 280px;
+  
+}
 }

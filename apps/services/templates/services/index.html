@@ -90,14 +90,29 @@
                         <p class="card-text ">{{ offer.description }}</p>
                         <h3 class=" text-uppercase text-center">Off: {{ offer.discount_percentage|floatformat:0 }}%</h3>
                         <h5 class="text-uppercase">Code: {{ offer.code }}</h5>
-                        <h5 >Valid until: {{ offer.end_date }}</h5>
+                        <h5>Valid until: {{ offer.end_date }}</h5>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </section>
+    <section class="services-section container mt-3">
+        <h2 class="mb-4">Our Services</h2>
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 mb-3 ">
+                <div class="card bg-dark text-white block">
+                    <img src="{{service.photo.url}} " alt="...">
+                    <div class="card-img-overlay">
+                        <h4 class="card-title text-center">{{service.title}}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
 
+    </section>
 
 </main>
 
