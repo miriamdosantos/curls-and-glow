@@ -31,7 +31,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .services-section h2,
 .offers-section h2:first-of-type,
-.stylishs-section h2{
+.stylishs-section h2,
+.testomonial-section h2{
   font-size: 2rem;
 }
 p {
@@ -193,7 +194,8 @@ main {
 }
 
 .card-body{
-  height: 300px;
+  min-height: 300px;
+  max-height: 500px;
   background-color: #f0f0f0;
   border: 1px solid #ddd; /* Borda suave */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
@@ -309,6 +311,7 @@ form input:disabled {
 .stylish-image{
   width: 250px; /* Adjust as needed */
     height: 250px;
+    object-fit: cover;
 }
 /* Custom Button Style for Index Page */
 /* Base button class (used for all button styles) */
