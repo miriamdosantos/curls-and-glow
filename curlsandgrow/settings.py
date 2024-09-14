@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'apps.services',
     'apps.feedback',
     'apps.contact',
-    'apps.stylishs',
+    'apps.stylists',
     
 ]
 

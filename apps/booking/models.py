@@ -1,7 +1,7 @@
 from django.db import models
 from apps.users.models import UserProfile
 from apps.services.models import Service
-from apps.stylishs.models import Stylish
+from apps.stylists.models import Stylist
 from cloudinary.models import CloudinaryField
 
 
@@ -33,7 +33,7 @@ class Booking(models.Model):
     full_name = models.CharField(max_length=200)
     email = models.EmailField()
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    stylish = models.ForeignKey(Stylish, on_delete=models.CASCADE)
+    stylish = models.ForeignKey(Stylist, on_delete=models.CASCADE)
     date_time = models.DateTimeField()
     created_on = models.DateTimeField(auto_now_add=True)
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE, null=True, blank=True)  # Referência correta ao modelo Offer
