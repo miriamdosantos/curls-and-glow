@@ -270,12 +270,12 @@ main {
 /*-- Service Page --- */
 .service-video-highlight {
   width: 100vw; /* Ajuste a largura conforme necessário */
-  height: 100vh; /* Ajuste a altura conforme necessário */
+  height: 45%; /* Ajuste a altura conforme necessário */
   
 }
 
 .service-video-highlight video {
-  width: 100%; /* Ajusta o vídeo para ocupar 100% da largura da div */
+  width: 99%; /* Ajusta o vídeo para ocupar 100% da largura da div */
   height: 80%; /* Ajusta o vídeo para ocupar 100% da altura da div */
   position: relative;
   object-fit: cover;
