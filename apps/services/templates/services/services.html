@@ -4,21 +4,21 @@
 {% block content %}
 
 <main>
-<section class="service-video-highlight container  mt-4">
-    <div class="row">
-        <div>
-            <h4></h4>
-            <video controls autoplay muted loop class="img-fluid">
-                <source src="{% static 'videos/services-video.mp4' %}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <button>
-                <a></a>
-            </button>
+    <section class="service-video-highlight container mt-3">
+        <div class="row d-flex">
+            <div class="col-md-12" >
+                <video  autoplay muted loop >
+                    <source src="{% static 'videos/services-video-back.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="text-overlay  p-3">
+                    <h1>Our Expertise</h2>
+                    <p>Empowering your natural beauty, Curl & Glow transforms your look and boosts your confidence</p>
+                    <p>with personalized curls haircare in a welcoming environment</p>
+                </div>
+            </div>
         </div>
-    </div>
-
-</section>
+    </section>
 
 </main>
 {% endblock %}

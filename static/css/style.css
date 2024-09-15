@@ -267,6 +267,35 @@ main {
   animation: slideInImage 1s ease-in-out forwards; /* Aplica a animação apenas uma vez */
 }
 
+/*-- Service Page --- */
+.service-video-highlight {
+  width: 100vw; /* Ajuste a largura conforme necessário */
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  
+}
+
+.service-video-highlight video {
+  width: 100%; /* Ajusta o vídeo para ocupar 100% da largura da div */
+  height: 80%; /* Ajusta o vídeo para ocupar 100% da altura da div */
+  position: relative;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+
+.text-overlay {
+  text-shadow: 2px 4px 5px rgb(244, 179, 179); 
+  background-color: rgba(183, 110, 121, 0.7);/* Adjust text color */
+  z-index: 1000; /* Ensures the text appears above the video */
+  position: absolute;
+  top:25rem;
+}
+.text-overlay p{
+  font-size: 1.5rem;
+}
+.text-overlay p{
+  display:block;
+}
 /* --------- Forms buttons styles --------- */
 form button[type="submit"] {
   background-color: #b76e79; 
@@ -380,38 +409,61 @@ footer {
 }
 
 /* Media Queries */
-@media (min-width: 575.98px) {
-  #hero {
-    height: 8rem;
-  }
-}
 
+/* Para telas menores ou iguais a 576px */
 @media (max-width: 576px) {
   .carousel-item img {
     max-height: 14rem;
   }
 }
 
+/* Para telas maiores que 575.98px */
+@media (min-width: 575.98px) {
+  #hero {
+    height: 8rem;
+  }
+}
+
+/* Para telas menores ou iguais a 768px */
 @media (max-width: 768px) {
   #mainNav .dropdown-menu {
     min-height: 50%;
   }
+  .text-overlay {
+    top: 18rem;
+  }
+
+  /* Esconde o parágrafo para telas menores ou iguais a 768px */
+  .text-overlay p {
+    display: none;
+  }
 }
 
-@media (min-width: 768px) {
+/* Para telas maiores que 768px e até 1199.98px */
+@media (min-width: 768px) and (max-width: 1199.98px) {
   #hero {
     height: 10rem;
   }
-}
 
-@media (min-width: 992px) {
-  #hero {
-    height: 15rem;
+  /* Esconde o parágrafo para telas entre 768px e 1199.98px */
+  .text-overlay p {
+    display: none;
   }
 }
-@media (min-width: 992px) {
-.card-body{
-  height: 280px;
-  
+
+/* Para telas maiores que 1200px */
+@media (min-width: 1200px) {
+  #hero {
+    height: 20rem;
+  }
+
+  .card-body {
+    height: 320px;
+  }
+
+  /* Exibe o parágrafo somente para telas maiores que 1200px */
+  .text-overlay p {
+    display: block;
+  }
 }
-}
+
