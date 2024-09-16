@@ -19,7 +19,7 @@
             </div>
         </div>
     </section>
-    <section class="container-expertise mt-3">
+    <section class="container-expertise container mt-3">
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="mb-4">Curls & Glow - Expert Curl Care & Pricing</h2>
@@ -36,7 +36,7 @@
                             <i class="fa-solid {{ service.get_icon }}"></i>
                         </span>
                         <div>
-                            <h4 class="card-title">{{ service.title }}</h4>
+                            <h3 class="card-title">{{ service.title }}</h3>
                             <p class="card-text">Price: € {{ service.price }}</p>
                             <p class="card-text">
                                 <small class="text-muted">{{ service.description }}</small>
@@ -52,14 +52,15 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="text-center mt-4 mb-3">
+                <div class="text-center mt-4 mb-3 blink-text">
                     <h2>Ready to transform your Curls?</h2>
                     {% if user.is_authenticated %}
                     <a href="{% url 'home' %}" class="btn btn-base btn-dark-brown btn-small">Book Your Appointment
                         Now!</a>
                     {% else %}
                     <!-- Botão para exibir o alert -->
-                    <button id="showModalButton" type="button" class="btn btn-base btn-dark-brown btn-small" data-bs-toggle="modal" data-bs-target="#alertModal">
+                    <button id="showModalButton" type="button" class="btn btn-base btn-dark-brown btn-small"
+                        data-bs-toggle="modal" data-bs-target="#alertModal">
                         Book Your Appointment Now!
                     </button>
                     {% endif %}
@@ -67,24 +68,56 @@
             </div>
         </div>
     </section>
-
-    <!-- Modal -->
-<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Attention Required</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <section class="container titleGallery-section">
+    <div class="row">
+        <!-- Texto -->
+        <div class="col-12 mb-4">
+            <h2 class="mt-4 mb-3">Explore Our Curl Styles</h2>
+            <p>Browse through our collection of curl styles and discover the endless possibilities for your hair.</p>
+            <p>Get inspired by our diverse range of curl types and finalizations.</p>
         </div>
-        <div class="modal-body">
-          Please <a href="{% url 'account_login' %}" class="alert-link">log in</a> or <a href="{% url 'account_signup' %}" class="alert-link">register</a> to book your appointment.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
+    <!-- Galeria de Imagens -->
+    <div class="row ">
+        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery1.jpeg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery2.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery3.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery4.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery5.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 image-container">
+            <img src="{% static 'images/gallery6.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
+        </div>
+    </div>
+</section>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Attention Required</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Please <a href="{% url 'account_login' %}" class="alert-link">log in</a> or <a
+                        href="{% url 'account_signup' %}" class="alert-link">register</a> to book your appointment.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>
 {% endblock %}
