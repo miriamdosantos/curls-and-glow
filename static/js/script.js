@@ -14,26 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Wait for the DOM to fully load
 document.addEventListener('DOMContentLoaded', function() {
-    // Select the button and modal elements
     var showModalButton = document.getElementById('showModalButton');
-    var exampleModal = document.getElementById('exampleModal');
-    
-    // Show the modal when the button is clicked
+    var exampleModal = document.getElementById('loginPromptModal');
+
     if (showModalButton) {
         showModalButton.addEventListener('click', function() {
-            var modal = new bootstrap.Modal(alertModal);
+            var modal = new bootstrap.Modal(exampleModal);
             modal.show();
         });
     }
 
-    // Remove the backdrop manually when the modal is hidden
-    alertModal.addEventListener('hidden.bs.modal', function () {
+    // Add a listener for when the modal is hidden
+    exampleModal.addEventListener('hidden.bs.modal', function () {
         var backdrop = document.querySelector('.modal-backdrop');
         if (backdrop) {
             backdrop.remove();
         }
+        // Remove 'modal-open' class from <body> if it exists
+        document.body.classList.remove('modal-open');
+        console.log('Modal closed and backdrop removed.');
     });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
