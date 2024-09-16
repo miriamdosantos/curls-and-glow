@@ -12,6 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Wait for the DOM to fully load
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the button and modal elements
+    var showModalButton = document.getElementById('showModalButton');
+    var exampleModal = document.getElementById('exampleModal');
+    
+    // Show the modal when the button is clicked
+    if (showModalButton) {
+        showModalButton.addEventListener('click', function() {
+            var modal = new bootstrap.Modal(alertModal);
+            modal.show();
+        });
+    }
+
+    // Remove the backdrop manually when the modal is hidden
+    alertModal.addEventListener('hidden.bs.modal', function () {
+        var backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    });
+});
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -50,3 +72,5 @@ var myCarousel = document.getElementById('carouselExampleCaptions');
     interval: 3000,  // Intervalo em milissegundos (3000 ms = 3 segundos)
     ride: 'carousel'
 });
+
+

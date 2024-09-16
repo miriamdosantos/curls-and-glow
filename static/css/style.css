@@ -222,7 +222,7 @@ main {
   100% { opacity: 1; }
 }
 .card-body > h3, 
-.services-expertise a{
+.services-expertise a, h3{
   animation: blink 0.8s infinite; /* Ajuste a duração e a repetição conforme necessário */
 }
 /* --- https://www.youtube.com/watch?v=0TnO1GzKWPc -- */
