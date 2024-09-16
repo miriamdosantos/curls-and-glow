@@ -218,11 +218,12 @@ main {
 }
 @keyframes blink {
   0% { opacity: 1; }
-  50% { opacity: 0; }
+  50% { opacity: 0.6; }
   100% { opacity: 1; }
 }
-.card-body > h3 {
-  animation: blink 1s infinite; /* Ajuste a duração e a repetição conforme necessário */
+.card-body > h3, 
+.services-expertise a{
+  animation: blink 0.8s infinite; /* Ajuste a duração e a repetição conforme necessário */
 }
 /* --- https://www.youtube.com/watch?v=0TnO1GzKWPc -- */
 @keyframes appear {
@@ -270,13 +271,11 @@ main {
 /*-- Service Page --- */
 .service-video-highlight {
   width: 100vw; /* Ajuste a largura conforme necessário */
-  height: 45%; /* Ajuste a altura conforme necessário */
-  
+ 
 }
 
 .service-video-highlight video {
   width: 99%; /* Ajusta o vídeo para ocupar 100% da largura da div */
-  height: 80%; /* Ajusta o vídeo para ocupar 100% da altura da div */
   position: relative;
   object-fit: cover;
   opacity: 0.9;
@@ -371,7 +370,7 @@ form input:disabled {
 
 /* Size variations */
 .btn-small {
-  padding: 8px 16px; 
+  padding: 6px 12px; 
   font-size: 0.8rem; 
 }
 
@@ -430,13 +429,14 @@ footer {
     min-height: 50%;
   }
   .text-overlay {
-    top: 18rem;
+    top: 20rem;
   }
 
   /* Esconde o parágrafo para telas menores ou iguais a 768px */
   .text-overlay p {
     display: none;
   }
+  
 }
 
 /* Para telas maiores que 768px e até 1199.98px */
@@ -446,11 +446,16 @@ footer {
   }
 
   /* Esconde o parágrafo para telas entre 768px e 1199.98px */
+  
   .text-overlay p {
     display: none;
   }
 }
-
+@media (min-width: 768px){
+  .text-overlay {
+    top: 33rem;
+  }
+}
 /* Para telas maiores que 1200px */
 @media (min-width: 1200px) {
   #hero {
