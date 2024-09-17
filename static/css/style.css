@@ -141,12 +141,52 @@ main {
   position: relative;
   background-color: #a65b6e; /* Background colour if image doesn't load */
 }
+.contact-image{
+width: 100%;
+height: 30rem;
+
+}
+
+.contact-image img{
+  height: 100%;
+}
+
 
 .container-background {
   background-color: #f7efe5;
   min-width: 250px;
   max-width: 70%;
   margin-bottom: 3rem;
+}
+
+
+/* Seção da imagem de fundo (hero-contact) */
+.hero-contact {
+  background: url("../images/contact.jpg") no-repeat center center/cover;
+  height: 60vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.hero-contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  
+}
+.hero-contact-contect{
+  background-color:  rgba(242, 222, 222, 0.501);
+  
+
+}
+
+.hero-contact p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  
+ 
 }
 
 /* Custom Carousel */
@@ -469,6 +509,11 @@ footer {
   .text-overlay {
     top: 33rem;
   }
+  .hero-contact{
+    height: 80vh;
+    background: url("../images/contact.jpg") no-repeat top 30% center/cover;
+
+  }
 }
 /* Para telas maiores que 1200px */
 @media (min-width: 1200px) {
@@ -484,5 +529,8 @@ footer {
   .text-overlay p {
     display: block;
   }
+
+
+  
 }
 
