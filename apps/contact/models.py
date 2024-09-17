@@ -8,7 +8,7 @@ class ContactMessage(models.Model):
     ('read', 'Read'),
     ('responded', 'Responded'),
 ]
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=True, blank=True )
     name = models.CharField(max_length=200)
     email= models.EmailField()
     subject = models.CharField(max_length=200)
