@@ -13,8 +13,8 @@
     </div>
   </div>
 </div>
-<div class="container container-background">
-  <div class="row">
+<div class="container container-background border ">
+  <div class="row  ">
     <div class="col-md-6 offset-md-3 text-center">
       <h1>{% trans "Sign Up" %}</h1>
       <h2>Welcome to a new you!</h2>
@@ -25,8 +25,8 @@
       <p>If you already have an account, please <a href="{{ login_url }}">Sign In here</a>.{% endblocktrans %}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3 text-center">
+  <div class="row  ">
+    <div class="col-md-6 offset-md-3 text-center ">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
