@@ -24,26 +24,34 @@ a:hover {
   color: #b76e79;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
   color: #4A474E;
-  
+
 }
+
 .services-section h2,
 .offers-section h2:first-of-type,
 .stylishs-section h2,
 .testomonial-section h2,
 .titleGallery-section h2,
 .container-expertise h2,
-.hero-section h1{
+.hero-section h1 {
   font-size: 2rem;
 }
+
 p {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
   color: #3e2a25;
-  margin-bottom: 1.2rem; 
+  margin-bottom: 1.2rem;
 }
+
 /* Header */
 .logo {
   height: 100%;
@@ -106,10 +114,10 @@ p {
 
 #mainNav .dropdown-menu {
   background-color: #f7efe5;
-  width: 100%; 
-  max-width: 230px; 
+  width: 100%;
+  max-width: 230px;
   font-size: 1.3rem;
-  max-height: 300px; 
+  max-height: 300px;
 }
 
 #mainNav .dropdown .dropdown-menu .dropdown-item {
@@ -139,15 +147,17 @@ main {
   width: 100%;
   background: url('../images/hero-image.png') no-repeat left center/cover;
   position: relative;
-  background-color: #a65b6e; /* Background colour if image doesn't load */
+  background-color: #a65b6e;
+  /* Background colour if image doesn't load */
 }
-.contact-image{
-width: 100%;
-height: 30rem;
+
+.contact-image {
+  width: 100%;
+  height: 30rem;
 
 }
 
-.contact-image img{
+.contact-image img {
   height: 100%;
 }
 
@@ -155,9 +165,10 @@ height: 30rem;
 .container-background,
 .contact-form-section {
   background-color: #f7efe5;
-  min-width: 92%; /* Largura mínima de 100% */
-  max-width: 20vw;  
-  
+  min-width: 92%;
+  /* Largura mínima de 100% */
+  max-width: 20vw;
+
   margin-bottom: 3rem;
 }
 
@@ -172,22 +183,43 @@ height: 30rem;
   opacity: 0.9;
 }
 
+.hero-booking {
+  background: url("../images/booking-hero.jpg") no-repeat 80% center /cover;
+  height: 65vh;
+  position: relative;
+
+}
+
+.hero-booking .text-overplay-booking {
+  position: absolute;
+  letter-spacing: 0.5rem;
+  top: 23rem;
+  left: 1rem;
+  text-shadow: 2px 4px 5px rgb(244, 179, 179);
+  background-color: rgba(183, 110, 121, 0.9);
+  /* Adjust text color */
+  min-width: 200px;
+  max-width: 250px;
+  z-index: 1000;
+}
+
 .hero-contact h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  
+
 }
-.hero-contact-contect{
-  background-color:  rgba(242, 222, 222, 0.501);
-  
+
+.hero-contact-contect {
+  background-color: rgba(242, 222, 222, 0.501);
+
 
 }
 
 .hero-contact p {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  
- 
+
+
 }
 
 /* Custom Carousel */
@@ -196,79 +228,96 @@ height: 30rem;
 
 .carousel-item img {
   width: 100%;
-  height: 430px; 
-  object-fit: cover; 
+  height: 430px;
+  object-fit: cover;
 }
+
 .carousel-caption {
   position: absolute;
-  top: 19.7rem; 
-  
+  top: 19.7rem;
+
 }
-.carousel-indicators{
+
+.carousel-indicators {
   position: absolute;
-  top:25rem;
+  top: 25rem;
 }
+
 .carousel-caption h5,
-.carousel-caption p{
+.carousel-caption p {
   margin-bottom: -0.4rem;
-  color: #fff; 
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
   text-align: justify;
 }
 
-.carousel-caption h5{
+.carousel-caption h5 {
   font-weight: bolder;
 }
 
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-image: none; 
-  color: #aa7750; 
-  font-size: 3.2rem; 
-  filter: invert(1); 
+  background-image: none;
+  color: #aa7750;
+  font-size: 3.2rem;
+  filter: invert(1);
 }
 
 /* Definição de ícones padrão do Bootstrap */
 .carousel-control-prev-icon::before {
-  content: '\2039'; 
+  content: '\2039';
 }
 
 .carousel-control-next-icon::before {
-  content: '\203A'; 
+  content: '\203A';
 }
 
-.card-body{
+.card-body {
   min-height: 300px;
   max-height: 500px;
   background-color: #f0f0f0;
-  border: 1px solid #ddd; /* Borda suave */
+  border: 1px solid #ddd;
+  /* Borda suave */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
-.card img{
+
+.card img {
   height: 450px;
   object-fit: cover;
 }
-.card-img-overlay .card-title{
+
+.card-img-overlay .card-title {
   position: absolute;
-  top:24rem;
-  left:2rem;
+  top: 24rem;
+  left: 2rem;
   font-size: 1.8rem;
-  color:black;
-  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5); 
+  color: black;
+  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
   background-color: #b76e79;
   padding: 5px 2px;
   border-radius: 2px;
-  
+
 }
+
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.6; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-.card-body > h3, 
-.blink-text  h2{
-  animation: blink 0.8s infinite; /* Ajuste a duração e a repetição conforme necessário */
+
+.card-body>h3,
+.blink-text h2 {
+  animation: blink 0.8s infinite;
+  /* Ajuste a duração e a repetição conforme necessário */
 }
 
 /* --- https://www.youtube.com/watch?v=0TnO1GzKWPc -- */
@@ -277,6 +326,7 @@ height: 30rem;
     opacity: 0;
     transform: scale(0.5);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -284,13 +334,17 @@ height: 30rem;
 }
 
 .block {
-  opacity: 0; /* Inicialmente invisível */
-  transform: scale(0.5); /* Inicialmente reduzido */
-  transition: opacity 1s, transform 1s; /* Adiciona uma transição suave */
+  opacity: 0;
+  /* Inicialmente invisível */
+  transform: scale(0.5);
+  /* Inicialmente reduzido */
+  transition: opacity 1s, transform 1s;
+  /* Adiciona uma transição suave */
 }
 
 .block.animated {
-  animation: appear 1s linear forwards; /* Aplica a animação apenas uma vez */
+  animation: appear 1s linear forwards;
+  /* Aplica a animação apenas uma vez */
 }
 
 @keyframes slideInImage {
@@ -298,6 +352,7 @@ height: 30rem;
     transform: translateX(-100%);
     opacity: 0.5;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -307,21 +362,25 @@ height: 30rem;
 .block-slide {
   transform: translateX(-100%);
   opacity: 0.5;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Adiciona uma transição suave */
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  /* Adiciona uma transição suave */
 }
 
 .block-slide.animated {
-  animation: slideInImage 1s ease-in-out forwards; /* Aplica a animação apenas uma vez */
+  animation: slideInImage 1s ease-in-out forwards;
+  /* Aplica a animação apenas uma vez */
 }
 
 /*-- Service Page --- */
 .service-video-highlight {
-  width: 100vw; /* Ajuste a largura conforme necessário */
- 
+  width: 100vw;
+  /* Ajuste a largura conforme necessário */
+
 }
 
 .service-video-highlight video {
-  width: 99%; /* Ajusta o vídeo para ocupar 100% da largura da div */
+  width: 99%;
+  /* Ajusta o vídeo para ocupar 100% da largura da div */
   position: relative;
   object-fit: cover;
   opacity: 0.9;
@@ -329,31 +388,43 @@ height: 30rem;
 
 
 .text-overlay {
-  text-shadow: 2px 4px 5px rgb(244, 179, 179); 
-  background-color: rgba(183, 110, 121, 0.7);/* Adjust text color */
-  z-index: 1000; /* Ensures the text appears above the video */
+  text-shadow: 2px 4px 5px rgb(244, 179, 179);
+  background-color: rgba(183, 110, 121, 0.8);
+  /* Adjust text color */
+  z-index: 1000;
+  /* Ensures the text appears above the video */
   position: absolute;
-  top:25rem;
+  top: 25rem;
 }
-.text-overlay p{
+
+.text-overlay h1 {
+  letter-spacing: 0.5rem;
+}
+
+.text-overlay p {
   font-size: 1.5rem;
 }
-.text-overlay p{
-  display:block;
+
+.text-overlay p {
+  display: block;
 }
+
 /* Gallery image style */
-.image-container { 
-  min-height: 80%; 
+.image-container {
+  min-height: 80%;
 }
+
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz a imagem se adaptar ao tamanho do contêiner sem distorção */
+  object-fit: cover;
+  /* Faz a imagem se adaptar ao tamanho do contêiner sem distorção */
 }
+
 /* --------- Forms buttons styles --------- */
 form button[type="submit"] {
-  background-color: #b76e79; 
-  color: #ffffff; 
+  background-color: #b76e79;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
   padding: 12px 20px;
   border: none;
@@ -363,15 +434,15 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-  background-color: #c69c7b; 
+  background-color: #c69c7b;
 }
 
 /* input disabled */
 form input:disabled {
-  background-color: #e5d3c3; 
-  color: #b76e79; 
+  background-color: #e5d3c3;
+  color: #b76e79;
   border-color: #f7efe5;
-} 
+}
 
 /* Sign Up/ Sign In/ Logout - button sytle */
 .page-buttons {
@@ -384,6 +455,7 @@ form input:disabled {
   padding: 8px 15px;
   font-size: 80%;
 }
+
 .sign-up {
   color: #4a474e;
   background-color: rgba(205, 172, 93, .5);
@@ -391,47 +463,49 @@ form input:disabled {
   margin-bottom: 30px;
 }
 
-.stylish-image{
-  width: 250px; /* Adjust as needed */
-    height: 250px;
-    object-fit: cover;
+.stylish-image {
+  width: 250px;
+  /* Adjust as needed */
+  height: 250px;
+  object-fit: cover;
 }
+
 /* Custom Button Style for Index Page */
 /* Base button class (used for all button styles) */
 .btn-base {
-  color: #ffffff; 
-  padding: 12px 24px; 
-  border-radius: 6px; 
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 1rem; 
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
-  transition: background-color 0.3s ease, border-color 0.3s ease; 
-  cursor: pointer; 
-  border: 2px solid transparent; 
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
 /* Color variations */
 .btn-dark-brown {
-  background-color: #3e2a25; 
-  border-color: #3e2a25; 
+  background-color: #3e2a25;
+  border-color: #3e2a25;
 }
 
 .btn-dark-brown:hover {
-  background-color: #4a474e; 
-  border-color: #4a474e; 
-  color: #f7efe5; 
+  background-color: #4a474e;
+  border-color: #4a474e;
+  color: #f7efe5;
 }
 
 /* Size variations */
 .btn-small {
-  padding: 8px 12px; 
-  font-size: 0.8rem; 
+  padding: 8px 12px;
+  font-size: 0.8rem;
 }
 
 .btn-large {
   padding: 16px 32px;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
 
 
@@ -443,19 +517,19 @@ form input:disabled {
 
 /* Footer Styles */
 footer {
-  background-color: #f8f9fa; 
-  padding: 40px 0; 
+  background-color: #f8f9fa;
+  padding: 40px 0;
 }
 
 .footer-title {
-  font-weight: bold; 
-  margin-bottom: 20px; 
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .social-links a {
-  font-size: 24px; 
-  margin: 0 10px; 
-  transition: color 0.3s ease; 
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 .fa-ul i {
@@ -483,6 +557,7 @@ footer {
   #mainNav .dropdown-menu {
     min-height: 50%;
   }
+
   .text-overlay {
     top: 20rem;
   }
@@ -491,7 +566,7 @@ footer {
   .text-overlay p {
     display: none;
   }
-  
+
 }
 
 /* Para telas maiores que 768px e até 1199.98px */
@@ -501,21 +576,24 @@ footer {
   }
 
   /* Esconde o parágrafo para telas entre 768px e 1199.98px */
-  
+
   .text-overlay p {
     display: none;
   }
 }
-@media (min-width: 768px){
+
+@media (min-width: 768px) {
   .text-overlay {
     top: 33rem;
   }
-  .hero-contact{
+
+  .hero-contact {
     height: 80vh;
     background: url("../images/contact.jpg") no-repeat top 30% center/cover;
 
   }
 }
+
 /* Para telas maiores que 1200px */
 @media (min-width: 1200px) {
   #hero {
@@ -531,7 +609,17 @@ footer {
     display: block;
   }
 
+  .hero-booking {
+    background: url("../images/booking-hero.jpg") no-repeat top 30% center /cover;
+    height: 65vh;
+  }
 
-  
+  .hero-booking .text-overplay-booking {
+    top: 25rem;
+    left: 27rem;
+    min-width: 200px;
+    max-width: 400px;
+  }
+
+
 }
-
