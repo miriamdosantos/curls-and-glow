@@ -153,13 +153,13 @@ height: 30rem;
 
 
 .container-background,
-.contact-form-section  {
+.contact-form-section {
   background-color: #f7efe5;
-  min-width: 250px;
-  max-width: 70%;
+  min-width: 92%; /* Largura mínima de 100% */
+  max-width: 20vw;  
+  
   margin-bottom: 3rem;
 }
-
 
 /* Seção da imagem de fundo (hero-contact) */
 .hero-contact {

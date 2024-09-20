@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', '.herokuapp.com'
+    '127.0.0.1', '.herokuapp.com', 'localhost'
     ]
 
 
@@ -138,6 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 
 # Internationalization

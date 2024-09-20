@@ -14,6 +14,7 @@ class ContactMessage(models.Model):
     subject = models.CharField(max_length=200)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    response = models.TextField(blank=True, null=True) # aditional fideld to allow admin asnwer
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='new')
     
     class Meta:
