@@ -5,7 +5,6 @@
 {% block content %}
 {% include 'includes/messages.html' %}
 
-
 <main>
     <!-- Seção com background image e texto -->
     <section class="hero-booking container w-100 mt-4">
@@ -16,40 +15,56 @@
         </div>
     </section>
 
-    <section class="container make-appointment-section ">
-        <div class="row  ">
+    <section class="mt-2 p-4 container container-background make-appointment-section">
+        <div class="row">
             <div class="col-md-12">
-                <form method="post" action="{% url 'booking' %}">
+                <form method="post" action="{% url 'select_time' %}">
                     {% csrf_token %}
-                    <div class="row ">
-                        <div class="col-md-12 text-center ">
-                        <h2 class="mb-4 mt-4  " style="letter-spacing: 0.7rem;">Make an Appointment</h2>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 class="mb-4 mt-4" style="letter-spacing: 0.7rem;">Make an Appointment</h2>
+                        </div>
                     </div>
                     <div>
-                        <h3>Choose Hair Specialist</h3>
+                        <h3 class="mt-4">Choose Hair Specialist</h3>
                         <div class="row">
                             {% for stylist in stylists %}
                             <div class="col-4 mb-3">
                                 <div class="text-center container-dropdown">
-                                    <!-- Stylist Image -->
-                                    <img src="{{ stylist.photo.url }}" class="rounded stylish-image"
-                                        alt="{{ stylist.name }}" style="width: 200px;">
-                                    <!-- Stylist Name -->
+                                    <img src="{{ stylist.photo.url }}" class="rounded stylish-image" alt="{{ stylist.name }}" style="width: 200px;">
                                     <h4 class="mt-2">{{ stylist.name }}</h4>
-                                    <!-- Radio button for selecting stylist -->
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="{{ stylist.id }}"> 
+                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="stylist{{ stylist.id }}" value="{{ stylist.id }}">
                                 </div>
                             </div>
                             {% endfor %}
+                            <!-- Opção "None" agora faz parte da mesma linha -->
+                            <div class="col-4 mb-3">
+                                <div class="text-center container-dropdown">
+                                    <h4 class="mt-2">None</h4>
+                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="noStylist" value="">
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2 mt-3">
+                                <h3 class="text-center">Choose Date</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 offset-md-4">
+                                <div class="d-flex align-items-center">
+                                    <input type="date" name="date" class="form-control me-2" style="height: 42px; width: 450px;" required>
+                                    <button type="submit" class="btn btn-primary p-1" style="height: 60%; width:80%;">Time Slots</button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div>
                 </form>
             </div>
         </div>
     </section>
-
-
 </main>
 {% endblock %}

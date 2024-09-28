@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Select Time{% endblock %}
+{% block content %}
+<main>
+    <section class="container container-background make-appointment-section mt-4">
+        <h2 class="text-center my-4">Available Times for - {{ selected_date }}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Seção para escolher horário -->
+            <div class="mb-3">
+                <label for="time" class="form-label">Choose a time:</label>
+                <select name="time" class="form-select" required>
+                    {% if available_times %}
+                        {% for time in available_times %}
+                            <option value="{{ time }}">{{ time }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">No available times</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <!-- Inputs ocultos para data e stylist -->
+            <input type="hidden" name="selected_date" value="{{ selected_date }}">
+            <input type="hidden" name="selected_stylist_id" value="{{ selected_stylist_id }}">
+            <input type="hidden" name="service" value="{{ service_id }}"> 
+            <!-- Seção para escolher serviço -->
+            <div class="mb-3">
+                <h4 class="mb-3">Select a Service</h4>
+                <select name="service" class="form-select" required>
+                    {% for service in services %}
+                        <option value="{{ service.id }}">{{ service.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Campo para cupom -->
+            <div class="mb-3">
+                <label for="coupon" class="form-label">Optional Coupon Code:</label>
+                <input type="text" name="coupon" class="form-control" placeholder="Enter coupon code">
+            </div>
+
+            <!-- Botão de envio -->
+            <div class="text-center">
+                <button type="submit" class=" mb-3 btn btn-primary">Book</button>
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}
