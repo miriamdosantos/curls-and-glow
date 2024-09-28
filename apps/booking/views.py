@@ -34,7 +34,7 @@ def select_date(request):
             # If a stylist was selected, filter by stylist
             stylist_id = int(selected_stylist_id)
             available_slots = Availability.objects.filter(stylist__id=stylist_id, day_of_week=day_of_week_name)
-            booked_slots = Booking.objects.filter(stylist__id=stylist_id, date_time__date=selected_date_obj)
+            booked_slots = Booking.objects.filter(stylish__id=stylist_id, date_time__date=selected_date_obj)
         else:
             # If no stylist is selected, get all available slots for the day
             available_slots = Availability.objects.filter(day_of_week=day_of_week_name)
