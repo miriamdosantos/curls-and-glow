@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.show();
         });
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        var showInvalidCouponModal = document.body.dataset.showInvalidCouponModal === "true";
+        var invalidCouponModal = document.getElementById('invalidCouponModal');
+    
+        if (showInvalidCouponModal && invalidCouponModal) {
+            var modal = new bootstrap.Modal(invalidCouponModal);
+            modal.show();
+        }
+    });
+  
 
     // Add a listener for when the modal is hidden
     exampleModal.addEventListener('hidden.bs.modal', function () {
