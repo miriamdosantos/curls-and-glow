@@ -1,6 +1,9 @@
 {% extends "base.html" %} 
 {% block title %}Select Time{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
+{% include 'includes/messages.html' %}
 <main>
     <section class="container container-background make-appointment-section mt-4">
         <h2 class="text-center my-4">Available Times for - {{ selected_date }}</h2>

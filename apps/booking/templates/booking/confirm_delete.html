@@ -1,0 +1,16 @@
+{% extends "base.html" %} 
+{% block title %}Delete booking{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'includes/messages.html' %}
+<div class="delete-container mt-4 mb-4 container-background p-4">
+    <h2 class="delete-title text-uppercase">Delete Booking</h2>
+    <p class="delete-message">Are you sure you want to cancel your booking for {{ booking.service.name }} with {{ booking.stylish.name }} on {{ booking.date_time|date:"F j, Y" }} from {{ booking.date_time|time:"H:i" }}?</p>    <form method="post">
+    <form method="post"> 
+        {% csrf_token %}
+        <button type="submit" class="btn" >Delete</button>
+        <a href="{% url 'user_bookings' %}" class="btn btn-danger  " >Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -229,3 +229,13 @@ def user_bookings(request):
     return render(request, 'booking/user_bookings.html', {
         'bookings': bookings
     })
+
+@login_required
+def delete_appointment(request, booking_id ):
+    booking = get_object_or_404(Booking, id=booking_id)
+    if request.method =='POST':
+        booking.delete()
+        messages.success(request, "Booking deleted successfully!")
+        return redirect('user_bookings')
+    return render(request, 'booking/confirm_delete.html', {'booking':booking})
+
