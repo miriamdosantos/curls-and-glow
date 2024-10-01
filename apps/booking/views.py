@@ -3,16 +3,17 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from datetime import datetime, timedelta
 from django.utils import timezone
+from django.urls import reverse_lazy
 from apps.services.models import Service
 from apps.stylists.models import Stylist, Availability
 from apps.users.models import UserProfile
 from .models import Booking, Offer
 from dateutil import parser  # Import parser from the dateutil library
-
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
+from django.views.generic.edit import UpdateView
 from datetime import datetime, timedelta
 from django.utils import timezone
 from apps.services.models import Service
@@ -256,3 +257,18 @@ def delete_appointment(request, booking_id ):
         messages.success(request, "Booking deleted successfully!")
         return redirect('user_bookings')
     return render(request, 'booking/confirm_delete.html', {'booking':booking})
+
+
+
+class BookingUpdateView(LoginRequiredMixin, UpdateView):
+    model = Booking
+    fields = ['full_name', 'email', 'date_time', 'service', 'stylish']
+    template_name_suffix = '_update_form'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)  # Calls the super class method to save the form
+        messages.success(self.request, 'Booking updated successfully!')  # Adds a success message
+        return response
+
+    def get_success_url(self):
+        return reverse_lazy('user_bookings')
