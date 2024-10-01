@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.book_appointment, name='book_appointment'),  # Final booking confirmation
     path('make-appointment/', views.make_appointment, name='booking'),  # Page to start booking
     path('select-date/', views.select_date, name='select_date'),  # Page to select date and time
+    path('my_bookings/', views.user_bookings, name='my_bookings')
     
 ]

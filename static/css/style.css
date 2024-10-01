@@ -43,7 +43,8 @@ h6 {
 .container-expertise h2,
 
 .hero-section h1,
-.confirmation-container > h1 {
+.confirmation-container > h1
+.container-user-bookings > h1 {
   font-size: 2rem;
 }
 

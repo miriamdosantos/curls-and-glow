@@ -220,3 +220,12 @@ def booking_confirmation(request, booking_id):
         'full_name': booking.full_name,
         'email': booking.email,
     })
+
+@login_required
+def user_bookings(request):
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    bookings = Booking.objects.filter(user_profile=user_profile)
+
+    return render(request, 'booking/user_bookings.html', {
+        'bookings': bookings
+    })
