@@ -10,6 +10,18 @@ from .models import Booking, Offer
 from dateutil import parser  # Import parser from the dateutil library
 
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
+from datetime import datetime, timedelta
+from django.utils import timezone
+from apps.services.models import Service
+from apps.stylists.models import Stylist, Availability
+from apps.users.models import UserProfile
+from .models import Booking, Offer
+from dateutil import parser  # Import parser from the dateutil library
+
+
 # Helper function to calculate free booking slots based on availability and existing bookings
 def get_free_slots(selected_date_obj, available_slots, booked_slots, duration_if_booked=timedelta(hours=2), interval_if_free=timedelta(minutes=30)):
     """
@@ -27,12 +39,19 @@ def get_free_slots(selected_date_obj, available_slots, booked_slots, duration_if
     """
     free_slots = []
 
+    # Get the current time for comparison
+    now = datetime.now()
+    
     for availability in available_slots:
         current_time = datetime.combine(selected_date_obj, availability.start_time)
         end_time = datetime.combine(selected_date_obj, availability.end_time)
 
         # Calculate the last available time for booking (1 hour before the end of availability)
         last_booking_time = end_time - timedelta(hours=1)
+
+        # Start from the current time if it's in the future, otherwise start from the availability start time
+        if now > current_time:
+            current_time = now
 
         while current_time < end_time:
             # Check if the time slot is already booked
@@ -49,7 +68,6 @@ def get_free_slots(selected_date_obj, available_slots, booked_slots, duration_if
                 current_time += interval_if_free  # Otherwise, move to the next slot in 30 minutes
 
     return free_slots
-
 
 # View for booking an appointment
 def make_appointment(request):
@@ -238,4 +256,3 @@ def delete_appointment(request, booking_id ):
         messages.success(request, "Booking deleted successfully!")
         return redirect('user_bookings')
     return render(request, 'booking/confirm_delete.html', {'booking':booking})
-

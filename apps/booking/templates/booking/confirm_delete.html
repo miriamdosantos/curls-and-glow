@@ -5,8 +5,8 @@
 {% block content %}
 {% include 'includes/messages.html' %}
 <div class="delete-container mt-4 mb-4 container-background p-4">
-    <h2 class="delete-title text-uppercase">Delete Booking</h2>
-    <p class="delete-message">Are you sure you want to cancel your booking for {{ booking.service.name }} with {{ booking.stylish.name }} on {{ booking.date_time|date:"F j, Y" }} from {{ booking.date_time|time:"H:i" }}?</p>    <form method="post">
+    <h1 class="delete-title text-uppercase">Delete Booking</h1>
+    <h5 class="delete-message">Are you sure you want to cancel your booking for <strong>{{ booking.service.title }}</strong> with <strong>{{ booking.stylish.name }}</strong> on <strong>{{ booking.date_time|date:"F j, Y" }}</strong> from <strong>{{ booking.date_time|time:"H:i" }}?</strong></h5>    
     <form method="post"> 
         {% csrf_token %}
         <button type="submit" class="btn" >Delete</button>
