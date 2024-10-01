@@ -66,5 +66,21 @@
             </div>
         </div>
     </section>
+    <!-- Stylist Availability Section -->
+    <section class=" text-center">
+        <h5 class="fw-bold"><i class="fa-solid fa-user-clock "></i> Stylist Work Days:</h5>
+        <ul class="list-unstyled">
+            {% for stylist in stylists %}
+                <li style="font-size: 0.9rem;"> <!-- Adjust the size as needed -->
+                    <strong>{{ stylist.name }}:</strong> 
+                    {% for availability in stylist.availabilities.all %}
+                        {% if not forloop.first %}, {% endif %}
+                        {{ availability.day_of_week }}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
 </main>
 {% endblock %}
