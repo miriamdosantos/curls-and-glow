@@ -42,7 +42,8 @@ h6 {
 .titleGallery-section h2,
 .container-expertise h2,
 
-.hero-section h1 {
+.hero-section h1,
+.confirmation-container > h1 {
   font-size: 2rem;
 }
 
@@ -567,7 +568,7 @@ footer {
   .text-overlay p {
     display: none;
   }
-  .stylish-image-option {
+  .make-appointment-section .stylish-image {
     max-width: 100%;
     max-height: 100px; /* Reduz o tamanho da imagem em telas menores */
 }

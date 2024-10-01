@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Booking confirmation{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'includes/messages.html' %}
+
+<section class="container confirmation-container mt-4 lh-base" >
+    <div>
+        <h1 class="fw-bold" >Booking Successful!</h1>
+        <p>Your booking is confirmed! We're excited to welcome you and take care of your hair needs!</p>
+    </div>
+    <h2 >Appointment Details:</h2>
+    <div class="row">
+        <div class="col left">
+            Booking name:
+        </div>
+        <div class="col right">
+            {{full_name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Email Address:
+        </div>
+        <div class="col right">
+            {{email}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Date and Time:
+        </div>
+        <div class="col right">
+            {{selected_datetime}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Service:
+        </div>
+        <div class="col right">
+            {{service}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            
+        </div>
+        <div class="col right">
+            {{stylist}}
+        </div>
+    </div>
+    
+    <div class="row">
+        {% if offer %}
+        <div class="col left">
+           Offer:
+        </div>
+        <div class="col right">
+            {{offer.code}}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Button Section with d-flex -->
+    <div class="row mt-3 ">
+        <div class="col-md-4 offset-md-2 text-center mb-5">
+            <a href="#" class="btn-base  btn-dark-brown ms-3">Manage Your Bookings</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -27,7 +27,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', '.herokuapp.com', 'localhost'
@@ -151,6 +151,9 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+DATE_INPUT_FORMATS = ['%Y-%m-%d']
+TIME_INPUT_FORMATS = ['%H:%M']
 
 
 # Static files (CSS, JavaScript, Images)

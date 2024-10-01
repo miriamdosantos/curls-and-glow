@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block title %}Select Time{% endblock %}
 {% block content %}
 <main>
@@ -7,7 +7,6 @@
 
         <form method="post" action="{% url 'book_appointment' %}">
             {% csrf_token %}
-
             <!-- Seção para escolher horário -->
             <div class="mb-3">
                 <label for="time" class="form-label">Choose a time:</label>
@@ -22,9 +21,23 @@
                 </select>
             </div>
 
+            <!-- Campo para nome completo -->
+            <div class="mb-3">
+                <label for="full_name" class="form-label">Full Name:</label>
+                <input type="text" name="full_name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Campo para email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            
             <!-- Inputs ocultos para data e stylist -->
             <input type="hidden" name="selected_date" value="{{ selected_date }}">
             <input type="hidden" name="selected_stylist_id" value="{{ selected_stylist_id }}">
+
 
             <!-- Seção para escolher serviço -->
             <div class="mb-3">
@@ -50,24 +63,6 @@
     </section>
 </main>
 
-<!-- Modal for invalid coupon -->
-<div class="modal fade" id="invalidCouponModal" tabindex="-1" aria-labelledby="invalidCouponModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="invalidCouponModalLabel">Invalid Coupon</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                The coupon code you entered is invalid or has expired. Please try again or contact support.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="document.getElementById('coupon').focus();">Try Again</button>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Modal for invalid coupon -->
 <div class="modal fade" id="invalidCouponModal" tabindex="-1" aria-labelledby="invalidCouponModalLabel" aria-hidden="true">
     <div class="modal-dialog">

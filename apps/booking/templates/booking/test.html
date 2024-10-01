@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% block title %}Booking confirmation{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'includes/messages.html' %}
+
+<section class="container confirmation-container mt-3" >
+    <div>
+        <h1>Booking Confirmation</h1>
+        <p>{{confirmation_message}}</p>
+    </div>
+    <h3 class="fw-bold">Appointment Details:</h3>
+    <div class="row">
+        <div class="col left">
+            Booking name:
+        </div>
+        <div class="col right">
+            {{full_name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Email Address:
+        </div>
+        <div class="col right">
+            {{email}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Date and Time:
+        </div>
+        <div class="col right">
+            {{selected_datetime}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Service:
+        </div>
+        <div class="col right">
+            {{service}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            
+        </div>
+        <div class="col right">
+            {{stylist}}
+        </div>
+    </div>
+    
+    <div class="row">
+        {% if offer %}
+        <div class="col left">
+           Offer:
+        </div>
+        <div class="col right">
+            {{offer.code}}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Button Section with d-flex -->
+    <div class="row mt-3 mb-3">
+        <div class="col d-flex justify-content-start ">
+            <!-- First form (Confirm button) -->
+            <form method="POST" action="{% url 'book_appointment' %}" class="me-3">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+
+            <!-- Second form (Cancel button) -->
+            <form method="GET" action="{% url 'booking' %}" >
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% extends "base.html" %}
+{% block title %}Booking confirmation{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'includes/messages.html' %}
+
+<section class="container confirmation-container mt-3" >
+    <div>
+        <h1>Booking Confirmation</h1>
+        <p>{{confirmation_message}}</p>
+    </div>
+    <h3 class="fw-bold">Appointment Details:</h3>
+    <div class="row">
+        <div class="col left">
+            Booking name:
+        </div>
+        <div class="col right">
+            {{full_name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Email Address:
+        </div>
+        <div class="col right">
+            {{email}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Date and Time:
+        </div>
+        <div class="col right">
+            {{selected_datetime}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Service:
+        </div>
+        <div class="col right">
+            {{service}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            
+        </div>
+        <div class="col right">
+            {{stylist}}
+        </div>
+    </div>
+    
+    <div class="row">
+        {% if offer %}
+        <div class="col left">
+           Offer:
+        </div>
+        <div class="col right">
+            {{offer.code}}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Button Section with d-flex -->
+    <div class="row mt-3 mb-3">
+        <div class="col d-flex justify-content-start ">
+            <!-- First form (Confirm button) -->
+            <form method="POST" action="{% url 'book_appointment' %}" class="me-3">
+                {% csrf_token %}
+                {% csrf_token %}
+    <input type="hidden" name="selected_stylist_id" value="{{ stylist.id }}">
+    <input type="hidden" name="service" value="{{ service.id }}">
+    <input type="hidden" name="selected_date" value="{{ selected_datetime.date }}">
+    <input type="hidden" name="time" value="{{ selected_datetime.time }}">
+    <input type="hidden" name="coupon" value="{{ coupon_code }}">
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+
+            <!-- Second form (Cancel button) -->
+            <form method="GET" action="{% url 'booking' %}" >
+                
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% extends "base.html" %}
+{% block title %}Booking confirmation{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'includes/messages.html' %}
+
+<section class="container confirmation-container mt-3" >
+    <div>
+        <h1>Booking Confirmation</h1>
+        <p>{{confirmation_message}}</p>
+    </div>
+    <h3 class="fw-bold">Appointment Details:</h3>
+    <div class="row">
+        <div class="col left">
+            Booking name:
+        </div>
+        <div class="col right">
+            {{full_name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Email Address:
+        </div>
+        <div class="col right">
+            {{email}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Date and Time:
+        </div>
+        <div class="col right">
+            {{selected_datetime}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            Service:
+        </div>
+        <div class="col right">
+            {{service}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col left">
+            
+        </div>
+        <div class="col right">
+            {{stylist}}
+        </div>
+    </div>
+    
+    <div class="row">
+        {% if offer %}
+        <div class="col left">
+           Offer:
+        </div>
+        <div class="col right">
+            {{offer.code}}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Button Section with d-flex -->
+    <div class="row mt-3 mb-3">
+        <div class="col d-flex justify-content-start ">
+            <!-- First form (Confirm button) -->
+            <form method="POST" action="{% url 'book_appointment' %}" class="me-3">
+                {% csrf_token %}
+                {% csrf_token %}
+    <input type="hidden" name="selected_stylist_id" value="{{ stylist.id }}">
+    <input type="hidden" name="service" value="{{ service.id }}">
+    <input type="hidden" name="selected_date" value="{{ selected_datetime.date }}">
+    <input type="hidden" name="time" value="{{ selected_datetime.time }}">
+    <input type="hidden" name="coupon" value="{{ coupon_code }}">
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+
+            <!-- Second form (Cancel button) -->
+            <form method="GET" action="{% url 'booking' %}" >
+                
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
