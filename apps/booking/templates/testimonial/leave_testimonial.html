@@ -3,14 +3,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {% include 'includes/messages.html' %}
-
-<div class="container">
-    <h1>Leave a Testimonial for {{ booking.service.title }}</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Submit Testimonial</button>
-        <a href="{% url 'user_bookings' %}" class="btn btn-secondary py-2 mt-2">Back to My Bookings</a>
-    </form>
-</div>
+<main>
+    <section class="container container-background mt-4 mb-4 p-4">
+        <h1 class="">Tell Us About Your Curls & Glow Experience</h1>
+        <h4 class="text-center mt-3" >Your testimonial helps us improve and provides valuable insights to future clients!</h4>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn  btn-primary p-3">Submit Testimonial</button>
+        </form>
+    </section>
+</main>
 {% endblock %}

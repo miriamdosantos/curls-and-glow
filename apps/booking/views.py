@@ -40,10 +40,11 @@ def get_free_slots(selected_date_obj, available_slots, booked_slots, duration_if
     - free_slots (list): List of free time slots for booking.
     """
     free_slots = []
-
+    
     # Get the current time for comparison
     now = datetime.now()
-    
+
+    # Iterate through each availability slot
     for availability in available_slots:
         current_time = datetime.combine(selected_date_obj, availability.start_time)
         end_time = datetime.combine(selected_date_obj, availability.end_time)
@@ -51,11 +52,13 @@ def get_free_slots(selected_date_obj, available_slots, booked_slots, duration_if
         # Calculate the last available time for booking (1 hour before the end of availability)
         last_booking_time = end_time - timedelta(hours=1)
 
-        # Start from the current time if it's in the future, otherwise start from the availability start time
-        if now > current_time:
-            current_time = now
-
+        # Start from the availability start time
         while current_time < end_time:
+            # If we're on the current day and current_time is in the past, skip it
+            if selected_date_obj.date() == now.date() and current_time < now:
+                current_time += interval_if_free
+                continue
+
             # Check if the time slot is already booked
             is_booked = booked_slots.filter(date_time__time=current_time.time()).exists()
 
