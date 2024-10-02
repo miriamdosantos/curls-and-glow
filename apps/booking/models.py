@@ -43,7 +43,7 @@ class Booking(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return f"Booking by {self.full_name} with {self.stylish.name} on {self.date_time}"
+        return f"Booking by {self.user_profile} with {self.stylish.name} on {self.date_time}"
     
 class Testimonial(models.Model):
     booking = models.OneToOneField(Booking, on_delete=models.CASCADE)

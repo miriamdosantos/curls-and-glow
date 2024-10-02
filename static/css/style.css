@@ -99,7 +99,7 @@ p {
   background-color: #b76e79;
   color: white;
   padding: 10px 15px;
-  margin-right: 8rem;
+  margin-right: 10rem;
   border-radius: 15px;
   min-width: fit-content;
 }
@@ -119,6 +119,7 @@ p {
   max-width: 230px;
   font-size: 1.3rem;
   max-height: 300px;
+ 
 }
 
 #mainNav .dropdown .dropdown-menu .dropdown-item {
@@ -617,7 +618,7 @@ footer {
   #hero {
     height: 20rem;
   }
-
+  
   .card-body {
     height: 320px;
   }

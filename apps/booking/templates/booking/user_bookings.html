@@ -7,10 +7,13 @@
 {% include 'includes/messages.html' %}
 <section class="container container-user-bookings mt-4">
     <h1 class="text-uppercase" style="letter-spacing: 0.6rem;" >My Bookings</h1>
+    
     {% if bookings %}
-            
+    
+    <h4>Hello <strong><em>{{ bookings.0.user_profile.user.username }}</em></strong>, check your appointments:</h4>
             <div class="row">
-                {% for booking in bookings %}
+               {% for booking in bookings %}
+               
                 <div class="col-sm-12 lh-lg mt-2" >
                   <div class="card w-100 h-50 border border-2 text-wrap ">
                     <div class="card-body ">

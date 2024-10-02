@@ -248,13 +248,18 @@ def booking_confirmation(request, booking_id):
 def user_bookings(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     bookings = Booking.objects.filter(user_profile=user_profile)
+    
+    # Inicializa uma flag para controlar se a mensagem já foi mostrada
+    testimonial_message_shown = False
+    
     for booking in bookings:
-        if booking.status == 'Completed' and not Testimonial.objects.filter(booking=booking).exists():
+        if booking.status == 'Completed' and not Testimonial.objects.filter(booking=booking).exists() and not testimonial_message_shown:
             messages.success(request, f"Booking for {booking.service.title} is complete! You can now leave a testimonial.")
+            testimonial_message_shown = True  # Marca que a mensagem foi mostrada
+    
     return render(request, 'booking/user_bookings.html', {
         'bookings': bookings
     })
-
 @login_required
 def delete_appointment(request, booking_id ):
     booking = get_object_or_404(Booking, id=booking_id)
