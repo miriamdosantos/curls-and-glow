@@ -49,7 +49,7 @@ class Testimonial(models.Model):
     booking = models.OneToOneField(Booking, on_delete=models.CASCADE)
     rating = models.IntegerField()
     message = models.TextField()
-    photo = CloudinaryField('image', default ='placeholder')
+    photo = CloudinaryField('image', default ='https://res.cloudinary.com/dx21s72fa/image/upload/v1727857392/w0wngka886ke3rcyr5gd.png', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from apps.services.models import Service
 from apps.stylists.models import Stylist, Availability
 from apps.users.models import UserProfile
-from .models import Booking, Offer
+from .models import Booking, Offer, Testimonial
 from dateutil import parser  # Import parser from the dateutil library
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -20,6 +20,7 @@ from apps.services.models import Service
 from apps.stylists.models import Stylist, Availability
 from apps.users.models import UserProfile
 from .models import Booking, Offer
+from .forms import TestimonialForm
 from dateutil import parser  # Import parser from the dateutil library
 
 
@@ -272,3 +273,31 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('user_bookings')
+@login_required  
+@login_required  
+def leave_testimonial(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id)
+
+    # Check if a testimonial already exists for the booking
+    if Testimonial.objects.filter(booking=booking).exists():
+        messages.error(request, "You have already left a testimonial for this booking.")
+        return redirect('user_bookings')  # Change to the desired URL
+
+    if request.method == 'POST':
+        # Create a new testimonial
+        form = TestimonialForm(request.POST, request.FILES)  # Use the form to handle the data
+        if form.is_valid():
+            # Save the new testimonial
+            new_testimonial = form.save(commit=False)  # Don't save yet, as we need to associate the booking
+            new_testimonial.booking = booking  # Associate the testimonial with the booking
+            new_testimonial.save()  # Save the testimonial
+
+            messages.success(request, "Your testimonial has been successfully submitted!")
+            return redirect('user_bookings')  # Change to where you want to redirect after success
+        else:
+            messages.error(request, "Please correct the errors in the form.")
+
+    else:
+        form = TestimonialForm()  # Initialize the empty form for the GET request
+
+    return render(request, 'testimonial/leave_testimonial.html', {'booking': booking, 'form': form})
