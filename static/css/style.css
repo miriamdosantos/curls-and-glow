@@ -75,6 +75,7 @@ p {
 }
 
 /* Customização da Navegação */
+
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
@@ -135,6 +136,7 @@ p {
 ul.navbar-nav .nav-item {
   margin-left: 3.1rem;
 }
+
 
 main {
   flex: 1 0 auto;
@@ -564,12 +566,16 @@ footer {
   #hero {
     height: 8rem;
   }
+  
 }
 
 /* Para telas menores ou iguais a 768px */
 @media (max-width: 768px) {
   #mainNav .dropdown-menu {
     min-height: 50%;
+  }
+  #mainNav {
+    min-width: 390px; /* Garante que a navbar ocupe toda a largura */
   }
 
   .text-overlay {
@@ -592,6 +598,9 @@ footer {
 @media (min-width: 768px) and (max-width: 1199.98px) {
   #hero {
     height: 10rem;
+  }
+  #mainNav {
+    min-width: 1000px; /* Garante que a navbar ocupe toda a largura */
   }
 
   /* Esconde o parágrafo para telas entre 768px e 1199.98px */
