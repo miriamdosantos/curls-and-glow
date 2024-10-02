@@ -8,8 +8,10 @@
 <section class="container container-user-bookings mt-4">
     <h1 class="text-uppercase" style="letter-spacing: 0.6rem;">My Bookings</h1>
 
+    <!-- Saudação sempre exibida, independentemente da existência de agendamentos -->
+    <h4>Hello <strong><em>{{ request.user.username }}</em></strong>, check your appointments:</h4>
+
     {% if bookings %}
-        <h4>Hello <strong><em>{{ bookings.0.user_profile.user.username }}</em></strong>, check your appointments:</h4>
         <div class="row">
             {% for booking in bookings %}
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-2"> <!-- Tornando a largura do card responsiva -->
@@ -46,7 +48,8 @@
             {% endfor %}
         </div>
     {% else %}
-        <p class="container-background"><strong>You have no bookings yet</strong></p>
+        <!-- Mensagem quando não houver agendamentos -->
+        <p class="container-background mt-4"><strong>You have no bookings yet. Start by booking your first appointment!</strong></p>
     {% endif %}
 </section>
 

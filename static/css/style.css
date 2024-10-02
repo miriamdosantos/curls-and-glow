@@ -56,7 +56,7 @@ p {
 /* Header */
 .logo {
   height: 100%;
-  width: 100%;
+  width: 75%;
   border-radius: 50%;
   border-color: #b76e79;
   padding-top: 40px;
@@ -73,9 +73,13 @@ p {
   text-align: center;
   display: flex;
 }
-
+.navbar-brand{
+  margin:0;
+}
 /* Customização da Navegação */
-
+#mainNav .navbar-toggler{
+  margin-right:2.5rem;
+}
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
@@ -579,7 +583,7 @@ footer {
   }
 
   .text-overlay {
-    top: 20rem;
+    top: 19rem;
   }
 
   /* Esconde o parágrafo para telas menores ou iguais a 768px */
