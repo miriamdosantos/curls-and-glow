@@ -10,21 +10,24 @@
         <div class="row">
             <!--Conditional text if user is authenticated-->
             <aside class="col-lg-6 d-flex align-items-center">
-                <div class="text-area mb-3">
-                    {% if user.is_authenticated %}
-                    <h1 class="text-wrap">Welcome back, {{ user.username }}!</h1>
-                    <p>At Curls & Glow, we’re dedicated to keeping your curls looking their best. Manage your bookings
-                        or explore our new services.</p>
-                    <a href="#" class=" btn-base btn-dark-brown ">Go to My Bookings</a>
-                    {% else %}
-                    <h1>Welcome to Curls & Glow!</h1>
-                    <p>At Curls & Glow, we are passionate about enhancing the beauty of your natural curls. With our
-                        extensive experience in curl care and finalization techniques, we ensure that your curls not
-                        only look their best but also stay healthy and radiant.</p>
-                    <p>Trust us to bring out the full potential of your curls, leaving them defined, glowing, and full
-                        of life!</p>
-                    <a href="{% url 'services' %}" class=" btn-base btn-dark-brown ">View Services</a>
-                    {% endif %}
+                <div class="row">
+                    <!-- Conditional text if user is authenticated -->
+                    <aside class="col-lg-6 d-flex align-items-center">
+                        <div class="text-area mb-3">
+                            {% if user.is_authenticated %}
+                            <div style="max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; white-space: normal;">
+                                <h1 class="text-wrap">Welcome back, {{ user.username }}!</h1>
+                                <p>At Curls & Glow, we’re dedicated to keeping your curls looking their best. Manage your bookings or explore our new services.</p>
+                                <a href="#" class="btn-base btn-dark-brown">Go to My Bookings</a>
+                            </div>
+                            {% else %}
+                            <h1>Welcome to Curls & Glow!</h1>
+                            <p>At Curls & Glow, we are passionate about enhancing the beauty of your natural curls. With our extensive experience in curl care and finalization techniques, we ensure that your curls not only look their best but also stay healthy and radiant.</p>
+                            <p>Trust us to bring out the full potential of your curls, leaving them defined, glowing, and full of life!</p>
+                            <a href="{% url 'services' %}" class="btn-base btn-dark-brown">View Services</a>
+                            {% endif %}
+                        </div>
+                    </aside>
                 </div>
             </aside>
 
