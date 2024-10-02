@@ -124,30 +124,47 @@ def select_date(request):
 
         # Fetch availability slots and booked slots based on stylist selection
         if selected_stylist_id == "":
+            # Quando não há stylist selecionado, busca todos os estilistas disponíveis
             available_slots = Availability.objects.filter(day_of_week=day_of_week_name)
             booked_slots = Booking.objects.filter(date_time__date=selected_date_obj)
+
+            # Obter todos os estilistas disponíveis para a data selecionada
+            stylists = Stylist.objects.all()
+            all_free_slots = []
+
+            for stylist in stylists:
+                stylist_available_slots = available_slots.filter(stylist=stylist)
+                stylist_booked_slots = booked_slots.filter(stylish=stylist)
+                free_slots_for_stylist = get_free_slots(selected_date_obj, stylist_available_slots, stylist_booked_slots)
+                all_free_slots.extend(free_slots_for_stylist)
+
+            # Formatar slots disponíveis para exibição ordenados
+            formatted_slots = sorted(set(all_free_slots))  # Remove duplicatas e ordena
+
         else:
             stylist_id = int(selected_stylist_id)
             available_slots = Availability.objects.filter(stylist__id=stylist_id, day_of_week=day_of_week_name)
             booked_slots = Booking.objects.filter(stylish__id=stylist_id, date_time__date=selected_date_obj)
 
-        # Get free slots using the helper function
-        free_slots = get_free_slots(selected_date_obj, available_slots, booked_slots)
+            # Get free slots using the helper function
+            free_slots = get_free_slots(selected_date_obj, available_slots, booked_slots)
 
-        # Format available slots for display
-        formatted_slots = [time.strftime("%I:%M %p") for time in free_slots]
+            # Format available slots for display ordered
+            formatted_slots = sorted(free_slots)  # Ordena
+
+        # Converter horários para o formato desejado (AM/PM) e garantir a ordem correta
+        formatted_time_slots = [time.strftime("%I:%M %p") for time in formatted_slots]
 
         context = {
             'selected_date': selected_date,
             'selected_stylist_id': selected_stylist_id,
-            'available_times': formatted_slots,
+            'available_times': formatted_time_slots,
             'services': services
         }
 
         return render(request, 'booking/select_time.html', context)
 
     return redirect('booking')
-
 
 @login_required
 def book_appointment(request):
@@ -254,7 +271,7 @@ def user_bookings(request):
     
     for booking in bookings:
         if booking.status == 'Completed' and not Testimonial.objects.filter(booking=booking).exists() and not testimonial_message_shown:
-            messages.success(request, f"Booking for {booking.service.title} is complete! You can now leave a testimonial.")
+            messages.success(request, f"Booking for {booking.service.title} with {booking.stylish} is complete! You can now leave a testimonial.")
             testimonial_message_shown = True  # Marca que a mensagem foi mostrada
     
     return render(request, 'booking/user_bookings.html', {
