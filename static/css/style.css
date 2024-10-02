@@ -575,7 +575,7 @@ footer {
     min-height: 50%;
   }
   #mainNav {
-    min-width: 390px; /* Garante que a navbar ocupe toda a largura */
+    min-width: 25rem; /* Garante que a navbar ocupe toda a largura */
   }
 
   .text-overlay {
