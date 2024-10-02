@@ -22,7 +22,7 @@
                     <div class="col-sm-12 mt-4 mt-lg-5">
                         <a href="{% url 'edit_appointment' booking.pk %}" class="btn btn-sm btn-dark p-3">Edit</a>
                         <a href="{% url 'delete_appointment' booking.pk %}" class="btn btn-sm btn-danger p-3">Delete</a>
-                        {% if booking.status == 'Confirmed' %}
+                        {% if booking.status == 'Completed' %}
                             <a href="{% url 'leave_testimonial' booking.pk %}" class="btn btn-primary btn-sm p-3">Leave Testimonial</a>
                         {% else %}
                             <a href="#" class="btn btn-primary btn-sm p-3 disabled" tabindex="-1" aria-disabled="true">Leave Testimonial</a>

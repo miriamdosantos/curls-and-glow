@@ -248,7 +248,9 @@ def booking_confirmation(request, booking_id):
 def user_bookings(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     bookings = Booking.objects.filter(user_profile=user_profile)
-
+    for booking in bookings:
+        if booking.status == 'Completed' and not Testimonial.objects.filter(booking=booking).exists():
+            messages.success(request, f"Booking for {booking.service.title} is complete! You can now leave a testimonial.")
     return render(request, 'booking/user_bookings.html', {
         'bookings': bookings
     })
@@ -257,6 +259,7 @@ def user_bookings(request):
 def delete_appointment(request, booking_id ):
     booking = get_object_or_404(Booking, id=booking_id)
     if request.method =='POST':
+        booking.status == 'Cancelled'
         booking.delete()
         messages.success(request, "Booking deleted successfully!")
         return redirect('user_bookings')
@@ -271,21 +274,24 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)  # Calls the super class method to save the form
+        self.object.status = 'Updated'
+        self.object.save()
         messages.success(self.request, 'Booking updated successfully!')  # Adds a success message
         return response
 
     def get_success_url(self):
         return reverse_lazy('user_bookings')
-@login_required  
+ 
 @login_required  
 def leave_testimonial(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
 
     # Check if a testimonial already exists for the booking
+    
     if Testimonial.objects.filter(booking=booking).exists():
         messages.error(request, "You have already left a testimonial for this booking.")
         return redirect('user_bookings')  # Change to the desired URL
-
+    
     if request.method == 'POST':
         # Create a new testimonial
         form = TestimonialForm(request.POST, request.FILES)  # Use the form to handle the data
@@ -302,5 +308,5 @@ def leave_testimonial(request, booking_id):
 
     else:
         form = TestimonialForm()  # Initialize the empty form for the GET request
-
+        
     return render(request, 'testimonial/leave_testimonial.html', {'booking': booking, 'form': form})
