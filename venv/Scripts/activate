@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\miria\OneDrive\Documents\Curls-and-Glow\curls-and-glow\venv"
+VIRTUAL_ENV="C:\Users\miria\OneDrive\Documents\curls-and-glow\curls-and-glow\curls-and-glow\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

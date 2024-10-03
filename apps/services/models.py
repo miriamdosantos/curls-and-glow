@@ -6,7 +6,7 @@ class Service(models.Model):
     title = models.CharField(max_length=100, unique=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    duration = models.TimeField()
+    duration = models.TimeField(blank=True, null=True)
     photo = CloudinaryField('image',default='placeholder')
     
     ICON_MAP = {
