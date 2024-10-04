@@ -1,17 +1,22 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block title %}Leave a Testimonial{% endblock %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} 
 {% block content %}
-{% include 'includes/messages.html' %}
+{% include 'includes/messages.html' %} 
+
 <main>
     <section class="container container-background mt-4 mb-4 p-4">
-        <h1 class="">Tell Us About Your Curls & Glow Experience</h1>
-        <h4 class="text-center mt-3" >Your testimonial helps us improve and provides valuable insights to future clients!</h4>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn  btn-primary p-3">Submit Testimonial</button>
+        <h1 class="">Tell Us About Your Curls & Glow Experience</h1> <!-- Main title for the testimonial section -->
+        
+        <h4 class="text-center mt-3">Your testimonial helps us improve and provides valuable insights to future clients!</h4> <!-- Subtitle explaining the purpose of testimonials -->
+        
+        <form method="POST" enctype="multipart/form-data"> <!-- Form to submit testimonial -->
+            {% csrf_token %} <!-- CSRF token for security -->
+            {{ form|crispy }} <!-- Render the form with crispy forms for better styling -->
+            
+            <button type="submit" class="btn btn-primary p-3">Submit Testimonial</button> <!-- Submit button for the form -->
         </form>
     </section>
 </main>
+
 {% endblock %}

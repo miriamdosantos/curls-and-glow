@@ -308,11 +308,9 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
 def leave_testimonial(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
 
-    # Check if a testimonial already exists for the booking
     
-    if Testimonial.objects.filter(booking=booking).exists():
-        messages.error(request, "You have already left a testimonial for this booking.")
-        return redirect('user_bookings')  # Change to the desired URL
+    
+    
     
     if request.method == 'POST':
         # Create a new testimonial

@@ -282,14 +282,14 @@ The project's main pages and layouts were initially created using the Balsamiqi 
 </details>
 
 <details>
-<summary>➡️ Booking</summary>
+<summary>➡️ Login</summary>
 
 ![Login page](documentation/images/wiframes/login.png)
 
 </details>
 
 <details>
-<summary>➡️ Booking</summary>
+<summary>➡️ Register</summary>
 
 ![Register page](documentation/images/wiframes/register.png)
 
@@ -318,7 +318,7 @@ The user story issue format consists of the user story itself, as well as accept
 When possible, during the development process, commit messages are associated with their corresponding issues. This practice ensures the relevance of each commit and also provides a visual representation of the progress made on each project issue. These issues are monitored using milestones, Kanban boards, and other Agile tools.
 
 <details>
-<summary>➡️ User Story model</summary>
+<summary>➡️ User Story Model</summary>
 
 ![User Story -model](documentation/images/agil/user-story.png)
 
@@ -328,11 +328,12 @@ When possible, during the development process, commit messages are associated wi
 The project employed the "MoSCoW" technique to effectively categorize and prioritize its features and requirements based on their importance. "MoSCoW" stands for "Must have, Should have, Could have, and Won't have," with each category contributing to the organization and prioritization of features. This approach acts as a guiding principle for the development process, ensuring that the most crucial elements are addressed as a top priority.
 
 <details>
-<summary>➡️ User Story model</summary>
+<summary>➡️ User Story Label</summary>
 
 ![User Story -label](documentation/images/agil/user-story-label.png)
 
 </details>
+
 ### GitHub Projects/Kanban
 The project adopted a basic Kanban Board structure, which was divided into columns such as Todo, In Progress, Project Backlog and Done. This setup provided a clear and organized way to track the progress of tasks, making it easier to visualize and manage the workflow throughout the development process. The GitHub project Kanban was linked to the repo for consistant reference.
 
@@ -341,6 +342,7 @@ The project adopted a basic Kanban Board structure, which was divided into colum
 
 ![Kaban-Board](documentation/images/agil/kaban-board.png)
 </details>
+
 ## Features
 
 ### Navigation Header
@@ -392,6 +394,7 @@ At the bottom, there’s a copyright notice to acknowledge ownership, styled in 
 - **JavaScript Libraries**: Integrated for interactive components  Bootstrap bundle.
 <details>
 <summary>➡️ Footer</summary>
+
 ![Footer section](documentation/images/features/footer.png)
 </details>
 
@@ -423,6 +426,7 @@ The **Home Page** of the **Curls & Glow** website is designed to provide a perso
 
 <details>
 <summary>➡️ Home </summary>
+
 ![Home page](documentation/images/features/home-page.png)
 </details>
 
@@ -453,6 +457,7 @@ The **Services Page** is designed to provide users with detailed information on 
 
 <details>
 <summary>➡️ Services </summary>
+
 ![Services page](documentation/images/features/services-page.png)
 </details>
 
@@ -460,7 +465,7 @@ The **Services Page** is designed to provide users with detailed information on 
 
 The **Contact Page** allows users to reach out to the Curls & Glow team by submitting a contact form. This page is designed to ensure a smooth user experience while maintaining a consistent layout with the rest of the site. The following technical details describe the structure and features of the Contact Page:
 
-### Features
+#### Features
 
 - **Hero Section**: The page begins with a visually appealing hero section that welcomes users with a catchy heading and informative text encouraging them to get in touch with the salon.
   
@@ -487,5 +492,192 @@ The **Contact Page** allows users to reach out to the Curls & Glow team by submi
 
 <details>
 <summary>➡️ Contact </summary>
+
 ![Contact page](documentation/images/features/contact-page.png)
+</details>
+
+### Admin Dashboard Features (Contact Message Management)
+
+The admin dashboard for managing contact messages offers staff users the ability to:
+
+- **View Messages:** A responsive message inbox where staff can see the name, subject, and email of each message. It uses a table layout for larger screens and a card layout for smaller screens, ensuring a user-friendly experience across devices.
+  
+- **Respond to Messages:** A dedicated interface allows staff to reply directly to contact messages. The form automatically fills in the contact’s email and original message, making it easy to write responses.
+  
+- **Mark as Read:** Staff can update the status of a message to "Read" using the action button.
+  
+- **Delete Messages:** Staff can remove messages with a simple confirmation prompt to avoid accidental deletions.
+
+## Technical Details
+
+- The inbox is built using Bootstrap’s grid system for responsiveness, with conditional display rules (`d-none d-md-table` and `d-md-none`) to toggle between table and card layouts.
+  
+- The response form leverages Formspree for handling email replies securely and without additional backend configurations.
+  
+- The system supports actions such as replying, marking as read, and deleting, using URL patterns tied to the message’s ID, with basic JavaScript confirmation for deletions.
+
+This system enables efficient communication management, ensuring that customer inquiries are promptly addressed.
+
+<details>
+<summary>➡️ Contact </summary>
+
+![Contact page](documentation/images/features/admin-dashboard.png)
+</details>
+
+### Booking Page
+
+The booking page allows users to schedule appointments with hair specialists through a user-friendly interface. Key features include:
+
+- **Hero Section:** Displays the booking title prominently against a background image, providing a welcoming entry point for users.
+  
+- **Appointment Form:** Users can select a hair specialist and choose a date for their appointment. The form includes:
+  - **Stylist Selection:** Displays available stylists with images, allowing users to select their preferred stylist. An option to choose "None" is also provided.
+  - **Date Picker:** Users can select a date using a date input field, ensuring an easy and intuitive booking process.
+  - **Submit Button:** A clear and accessible button that submits the selected stylist and date.
+
+- **Stylist Availability Section:** Displays the work days of each stylist, helping users understand when their preferred stylist is available.
+
+#### Technical Details
+
+- The page utilizes Bootstrap for responsive design, ensuring a seamless experience across devices.
+  
+- The form submission is handled via a POST request to the `select_date` URL, which processes the user's selection and directs them to the next steps in the booking process.
+
+This feature-rich booking page enhances user experience by simplifying appointment scheduling and providing clear information about stylist availability.
+
+<details>
+<summary>➡️ Booking </summary>
+
+![Booking page](documentation/images/features/booking-page.png)
+</details>
+
+
+#### Booking System Overview
+
+The booking system allows users to select a stylist, choose a date, and book an appointment seamlessly.
+
+### Booking Flow
+1. **Select Stylist and Date**: Users select a stylist and a date from the booking page. After submission, they are redirected to the **Select Time** page.
+2. **Select Time**: Users can choose from available time slots for their appointment. They will also enter their full name, email, and select a service. An optional coupon code can be entered here as well.
+3. **Form Submission**: Upon clicking the **Book** button, the form data is sent to the server for processing.
+
+#### Template Structure
+- **Booking Template (`booking.html`)**: This template handles the initial selection of stylist and date.
+- **Select Time Template (`select_time.html`)**: This template displays the available times based on the selected stylist and date. It includes fields for user details and an optional coupon code.
+
+#### Features
+- **Form Validation**: All fields are validated to ensure required information is provided.
+- **Modal for Invalid Coupons**: If the user enters an invalid or expired coupon code, a modal will inform them of the error and prompt for re-entry.
+
+<details>
+<summary>➡️ Select Time </summary>
+
+![Select Time page](documentation/images/features/select-time-page.png)
+</details>
+
+#### Booking Confirmation 
+
+The Booking Confirmation Page is part of the Booking flow as well,  is responsible for displaying the confirmation of a user's booking. It shows essential appointment details such as:
+
+- **Booking Name**: The name of the user who made the booking.
+- **Email Address**: The email provided during the booking process.
+- **Date and Time**: The selected date and time for the appointment.
+- **Service**: The type of service booked.
+- **Stylist**: The stylist assigned to the booking.
+- **Offer**: Any promotional offer applied (if available).
+
+### Key Features:
+- Utilizes Bootstrap for responsive design.
+- Conditionally displays the offer section if applicable.
+- Provides a clear call-to-action button for managing bookings.
+
+<details>
+<summary>➡️ Booking Confirmation </summary>
+
+![Booking Confirmation page](documentation/images/features/booking-confirmation-page.png)
+</details>
+
+### My Bookings Page
+
+The  My Bookings page is designed to display a user's bookings, allowing them to manage their appointments effectively. It provides an overview of all the services they have scheduled, along with options for editing, deleting, and leaving testimonials for completed bookings.
+
+## Key Features:
+- **User Greeting**: Displays a personalized greeting to the logged-in user, encouraging them to check their appointments.
+- **Booking List**: Shows a responsive grid of cards, each representing a user's booking, with details including:
+  - **Service**: The name of the service booked.
+  - **Date and Time**: The scheduled date and time of the appointment.
+  - **Stylist**: The stylist assigned to the booking.
+- **Action Buttons**: Provides buttons for each booking to:
+  - **Edit**: Allows users to modify their booking details.
+  - **Delete**: Enables users to remove their bookings.
+  - **Leave Testimonial**: Offers the option to leave feedback for completed bookings (disabled for upcoming appointments).
+- **No Bookings Message**: Displays a message encouraging users to make their first booking if no appointments are found.
+
+## Usage
+The template leverages Bootstrap for responsive design and includes conditional logic to handle the display of bookings and actions based on their status.
+
+<details>
+<summary>➡️ My bookings </summary>
+
+![My bookings page](documentation/images/features/myBookings.png)
+</details>
+
+#### Leave a Testimonial
+The Leave a Testimonial page is designed for users to submit their feedback after an appointment. This feedback is crucial for improving services and helps potential clients make informed decisions.
+
+##### Key Features:
+- Provides a user-friendly interface for submitting testimonials.
+- Utilizes Bootstrap for responsive design and styling.
+- Includes a CSRF token for security against cross-site request forgery.
+- The form is rendered using the Crispy Forms library to ensure a clean and consistent layout.
+
+##### Important Notes:
+- Ensure that the admin changes the booking status to "Completed" before the user can access this testimonial page.
+- After user submit the testimonial button will be change disable and informative `Testimonial Submitted `
+- User testimonials are valuable for service improvement and can influence new clients.
+
+
+<details>
+<summary>➡️ Leave Testimonial </summary>
+
+![Leave a Testimonial page](documentation/images/features/leave-testimonial-page.png)
+</details>
+
+#### Delete Booking Confirmation
+
+The Delete Confirmg page provides the user with a confirmation prompt before permanently canceling a booking. This ensures that users are fully aware of the action they are about to perform and helps prevent accidental deletions.
+
+##### Key Features:
+- **Booking Details**: The template displays essential information about the booking, such as:
+  - **Service**: The type of service booked.
+  - **Stylist**: The stylist assigned to the appointment.
+  - **Date and Time**: The scheduled date and time for the booking.
+  
+- **Form Submission**: The form is submitted via `POST` to ensure security, and the CSRF token is included to protect against cross-site request forgery.
+- **Action Buttons**:
+  - **Delete**: A prominent, red button to confirm the cancellation.
+  - **Cancel**: A secondary button allowing the user to back out of the deletion process and return to their bookings.
+
+<details>
+<summary>➡️ Leave Testimonial </summary>
+
+![Delete Confirmation Booking page](documentation/images/features/delete-confirmation-page.png)
+</details>
+
+#### Edit Booking
+The Edit Booking page  is responsible for providing users with an interface to modify an existing booking. Users can update their service, stylist, or booking time.
+
+##### Key Features:
+- **Form Layout**: The form is rendered using the `crispy_forms` tag, ensuring a well-structured and consistent layout that adheres to Bootstrap styles.
+- **CSRF Protection**: The form includes a CSRF token to protect against cross-site request forgery.
+- **Responsive Design**: The form layout is fully responsive and adapts to different screen sizes using the Bootstrap grid system.
+  
+##### Action Buttons:
+- **Save Changes**: A prominent, blue button (`btn-primary`) to submit the form and update the booking.
+- **Cancel**: A secondary, grey button (`btn-secondary`) that allows the user to cancel the edit and return to the "My Bookings" page without saving any changes.
+
+<details>
+<summary>➡️ Leave Testimonial </summary>
+
+![Edit Booking page](documentation/images/features/edit-booking-page.png)
 </details>

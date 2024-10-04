@@ -1,72 +1,84 @@
 {% extends "base.html" %}
-{% block title %}Booking confirmation{% endblock %}
+{% block title %}Booking Confirmation{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
 {% include 'includes/messages.html' %}
 
-<section class="container confirmation-container mt-4 lh-base" >
+<!-- Start of the booking confirmation section -->
+<section class="container confirmation-container mt-4 lh-base">
     <div>
-        <h1 class="fw-bold" >Booking Successful!</h1>
+        
+        <h1 class="fw-bold">Booking Successful!</h1>
+        <!-- Thank you message to the user -->
         <p>Your booking is confirmed! We're excited to welcome you and take care of your hair needs!</p>
     </div>
+
+    <!-- Container for appointment details -->
     <div class="container-background mb-3 p-3">
-    <h2 >Appointment Details:</h2>
-    <div class="row">
-        <div class="col left">
-            Booking name:
+        <h2>Appointment Details:</h2>
+        <div class="row">
+            <!-- Display of booking name -->
+            <div class="col left">
+                Booking Name:
+            </div>
+            <div class="col right">
+                {{ full_name }}  <!-- User's name passed from the context -->
+            </div>
         </div>
-        <div class="col right">
-            {{full_name}}
+        <div class="row">
+            <!-- Display of email address -->
+            <div class="col left">
+                Email Address:
+            </div>
+            <div class="col right">
+                {{ email }}  <!-- User's email passed from the context -->
+            </div>
+        </div>
+        <div class="row">
+            <!-- Display of selected date and time -->
+            <div class="col left">
+                Date and Time:
+            </div>
+            <div class="col right">
+                {{ selected_datetime }}  <!-- Appointment date and time -->
+            </div>
+        </div>
+        <div class="row">
+            <!-- Display of the booked service -->
+            <div class="col left">
+                Service:
+            </div>
+            <div class="col right">
+                {{ service }}  <!-- Selected service passed from the context -->
+            </div>
+        </div>
+        <div class="row">
+            <!-- Display of the stylist responsible -->
+            <div class="col left">
+                Stylist:
+            </div>
+            <div class="col right">
+                {{ stylist }}  <!-- Assigned stylist passed from the context -->
+            </div>
+        </div>
+        <div class="row">
+            {% if offer %}
+            <!-- Display of offer code, if available -->
+            <div class="col left">
+                Offer:
+            </div>
+            <div class="col right">
+                {{ offer.code }}  <!-- Offer code, if applicable -->
+            </div>
+            {% endif %}
         </div>
     </div>
+
+    <!-- Button section with d-flex class for alignment -->
     <div class="row">
-        <div class="col left">
-            Email Address:
-        </div>
-        <div class="col right">
-            {{email}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col left">
-            Date and Time:
-        </div>
-        <div class="col right">
-            {{selected_datetime}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col left">
-            Service:
-        </div>
-        <div class="col right">
-            {{service}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col left">
-            
-        </div>
-        <div class="col right">
-            {{stylist}}
-        </div>
-    </div>
-    
-    <div class="row">
-        {% if offer %}
-        <div class="col left">
-           Offer:
-        </div>
-        <div class="col right">
-            {{offer.code}}
-        </div>
-        {% endif %}
-    </div>
-</div>
-    <!-- Button Section with d-flex -->
-    <div class="row  ">
-        <div class="col-md-4   mb-5">
-            <a href="{% url 'user_bookings' %}" class="btn-base  btn-dark-brown ms-1">Manage Your Bookings</a>
+        <div class="col-md-4 mb-5">
+            <!-- Button for managing user bookings -->
+            <a href="{% url 'user_bookings' %}" class="btn-base btn-dark-brown ms-1">Manage Your Bookings</a>
         </div>
     </div>
 </section>

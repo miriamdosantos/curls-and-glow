@@ -7,6 +7,7 @@
 <div class="container mt-5">
     <h2 class="mb-4">Reply to Message from: <span style="color: #c69c7b;">{{ contact.name }}</span></h2>
 
+    <!-- Display contact email and message -->
     <div class="mb-3">
         <p class="mb-1"><strong>Email:</strong></p>
         <p class="form-control-plaintext">{{ contact.email }}</p>
@@ -17,34 +18,33 @@
         <p class="form-control-plaintext">{{ contact.message }}</p>
     </div>
 
+    <!-- Form for sending a response -->
     <form id="responseForm" action="https://formspree.io/f/xwpedvew" method="POST">
         {% csrf_token %}
         
-        <!-- Campo oculto para definir o e-mail do destinatário -->
+        <!-- Hidden field for recipient email -->
         <input type="hidden" name="_replyto" value="{{ contact.email }}">
         
-        <!-- Campo oculto para definir o assunto do e-mail -->
+        <!-- Hidden field for email subject -->
         <input type="hidden" name="_subject" value="Response to Your Message - Curls & Glow">
         
-        <!-- Nome do contato -->
+        <!-- Hidden fields for contact details -->
         <input type="hidden" name="contact_name" value="{{ contact.name }}">
-        
-        <!-- E-mail de contato -->
         <input type="hidden" name="contact_email" value="{{ contact.email }}">
-        
-        <!-- Mensagem original do contato -->
         <input type="hidden" name="contact_message" value="{{ contact.message }}">
         
-        <!-- Campo para a resposta -->
+        <!-- Response message text area -->
         <div class="mb-3">
             <label for="response_message" class="form-label">Response Message</label>
             <textarea id="response_message" name="response_message" class="form-control" rows="5" placeholder="Write your response here" required></textarea>
         </div>
         
-        <!-- Campo para o rodapé (Best Wishes) -->
+        <!-- Hidden field for message footer -->
         <input type="hidden" name="best_wishes" value="Best Wishes, Curls & Glow Team">
         
+        <!-- Submit button -->
         <button type="submit" class="btn btn-primary">Send Response</button>
     </form>
 </div>
+
 {% endblock %}

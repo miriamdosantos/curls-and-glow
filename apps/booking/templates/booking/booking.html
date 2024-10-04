@@ -6,57 +6,58 @@
 {% include 'includes/messages.html' %}
 
 <main>
-    <!-- Seção com background image e texto -->
+    <!-- Section with background image and title text -->
     <section class="hero-booking container w-100 mt-4">
         <div class="row ">
             <div class="col-md-12 text-center text-uppercase text-overplay-booking">
-                <h1>Booking</h1>
+                <h1>Booking</h1> <!-- Main title for the booking page -->
             </div>
         </div>
     </section>
 
+    <!-- Section for making an appointment -->
     <section class="mt-2 mb-2 p-4 container container-background make-appointment-section">
         <div class="row">
             <div class="col-md-12">
                 <form method="post" action="{% url 'select_date' %}">
-                    {% csrf_token %}
+                    {% csrf_token %} <!-- CSRF token for security -->
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h2 class="mb-4 mt-4" style="letter-spacing: 0.7rem;">Make an Appointment</h2>
+                            <h2 class="mb-4 mt-4" style="letter-spacing: 0.7rem;">Make an Appointment</h2> <!-- Subtitle for appointment section -->
                         </div>
                     </div>
                     <div>
-                        <h3 class="mt-4">Choose Hair Specialist</h3>
+                        <h3 class="mt-4">Choose Hair Specialist</h3> <!-- Header for stylist selection -->
                         <div class="row">
                             {% for stylist in stylists %}
-                            <div class="col-4 mb-3">
+                            <div class="col-4 mb-3"> <!-- Grid layout for stylist cards -->
                                 <div class="text-center container-dropdown">
-                                    <img src="{{ stylist.photo.url }}" class="rounded stylish-image" alt="{{ stylist.name }}" style="width: 200px;">
-                                    <h4 class="mt-2">{{ stylist.name }}</h4>
-                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="stylist{{ stylist.id }}" value="{{ stylist.id }}" {% if forloop.first %}required{% endif %}>
+                                    <img src="{{ stylist.photo.url }}" class="rounded stylish-image" alt="{{ stylist.name }}" style="width: 200px;"> <!-- Stylist photo -->
+                                    <h4 class="mt-2">{{ stylist.name }}</h4> <!-- Stylist name -->
+                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="stylist{{ stylist.id }}" value="{{ stylist.id }}" {% if forloop.first %}required{% endif %}> <!-- Radio button for stylist selection -->
                                 </div>
                             </div>
                             {% endfor %}
-                            <!-- Opção "None" agora faz parte da mesma linha -->
+                            <!-- Option "None" for users who don't want to select a stylist -->
                             <div class="col-4 mb-3">
                                 <div class="text-center container-dropdown">
                                     <h4 class="mt-2">None</h4>
-                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="noStylist" value="">
+                                    <input class="form-check-input" type="radio" name="selected_stylist_id" id="noStylist" value=""> <!-- Radio button for "None" option -->
                                 </div>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-8 offset-md-2 mt-3">
-                                <h3 class="text-center">Choose Date</h3>
+                                <h3 class="text-center">Choose Date</h3> <!-- Header for date selection -->
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 offset-md-4">
                                 <div class="d-flex align-items-center">
-                                    <input type="date" name="date-calendar" class="form-control me-2" style="height: 42px; width: 450px;" required>
-                                    <button type="submit" class="btn btn-primary p-1" style="height: 60%; width:80%;">Time Slots</button>
+                                    <input type="date" name="date-calendar" class="form-control me-2" style="height: 42px; width: 450px;" required> <!-- Date input field -->
+                                    <button type="submit" class="btn btn-primary p-1" style="height: 60%; width:80%;">Time Slots</button> <!-- Submit button to show available time slots -->
                                 </div>
                             </div>
                         </div>
@@ -66,16 +67,17 @@
             </div>
         </div>
     </section>
-    <!-- Stylist Availability Section -->
-    <section class=" text-center ">
-        <h5 class="fw-bold"><i class="fa-solid fa-user-clock "></i> Stylist Work Days:</h5>
+    
+    <!-- Section to display stylist availability -->
+    <section class="text-center">
+        <h5 class="fw-bold"><i class="fa-solid fa-user-clock"></i> Stylist Work Days:</h5> <!-- Header for stylist availability -->
         <ul class="list-unstyled">
             {% for stylist in stylists %}
-                <li style="font-size: 0.9rem;"> <!-- Adjust the size as needed -->
-                    <strong>{{ stylist.name }}:</strong> 
+                <li style="font-size: 0.9rem;"> <!-- List item for each stylist -->
+                    <strong>{{ stylist.name }}:</strong> <!-- Stylist's name -->
                     {% for availability in stylist.availabilities.all %}
-                        {% if not forloop.first %}, {% endif %}
-                        {{ availability.day_of_week }}
+                        {% if not forloop.first %}, {% endif %} <!-- Comma between days -->
+                        {{ availability.day_of_week }} <!-- Day of the week the stylist is available -->
                     {% endfor %}
                 </li>
             {% endfor %}

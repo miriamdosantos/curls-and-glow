@@ -1,66 +1,66 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block title %}Select Time{% endblock %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
 {% include 'includes/messages.html' %}
+
 <main>
     <section class="container container-background make-appointment-section mt-4">
-        <h2 class="text-center my-4">Available Times for - {{ selected_date }}</h2>
+        <h2 class="text-center my-4">Available Times for - {{ selected_date }}</h2> <!-- Title displaying the selected date -->
 
-        <form method="post" action="{% url 'book_appointment' %}">
-            {% csrf_token %}
-            <!-- Seção para escolher horário -->
+        <form method="post" action="{% url 'book_appointment' %}"> <!-- Form for booking appointment -->
+            {% csrf_token %} <!-- CSRF token for security -->
+            
+            <!-- Section to choose time -->
             <div class="mb-3">
                 <label for="time" class="form-label">Choose a time:</label>
-                <select name="time" class="form-select" required>
+                <select name="time" class="form-select" required> <!-- Dropdown for available times -->
                     {% if available_times %}
                         {% for time in available_times %}
-                            <option value="{{ time }}">{{ time }}</option>
+                            <option value="{{ time }}">{{ time }}</option> <!-- Options for each available time -->
                         {% endfor %}
                     {% else %}
-                        <option value="">No available times</option>
+                        <option value="">No available times</option> <!-- Message when no times are available -->
                     {% endif %}
                 </select>
             </div>
 
-            <!-- Campo para nome completo -->
+            <!-- Input field for full name -->
             <div class="mb-3">
                 <label for="full_name" class="form-label">Full Name:</label>
-                <input type="text" name="full_name" class="form-control" placeholder="Enter your full name" required>
+                <input type="text" name="full_name" class="form-control" placeholder="Enter your full name" required> <!-- Full name input -->
             </div>
 
-            <!-- Campo para email -->
+            <!-- Input field for email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required> <!-- Email input -->
             </div>
 
-            
-            <!-- Inputs ocultos para data e stylist -->
+            <!-- Hidden inputs to pass selected date and stylist ID -->
             <input type="hidden" name="selected_date" value="{{ selected_date }}">
             <input type="hidden" name="selected_stylist_id" value="{{ selected_stylist_id }}">
 
-
-            <!-- Seção para escolher serviço -->
+            <!-- Section for choosing a service -->
             <div class="mb-3">
-                <h4 class="mb-3">Select a Service</h4>
-                <select name="service" class="form-select" required>
+                <h4 class="mb-3">Select a Service</h4> <!-- Header for service selection -->
+                <select name="service" class="form-select" required> <!-- Dropdown for services -->
                     {% for service in services %}
-                        <option value="{{ service.id }}">{{ service.title }}</option>
+                        <option value="{{ service.id }}">{{ service.title }}</option> <!-- Options for each service -->
                     {% endfor %}
                 </select>
             </div>
 
-            <!-- Campo para cupom -->
+            <!-- Input field for optional coupon code -->
             <div class="mb-3">
                 <label for="coupon" class="form-label">Optional Coupon Code:</label>
-                <input type="text" name="coupon" class="form-control" placeholder="Enter coupon code">
+                <input type="text" name="coupon" class="form-control" placeholder="Enter coupon code"> <!-- Coupon code input -->
             </div>
 
-            <!-- Botão de envio -->
+            <!-- Submit button for booking -->
             <div class="text-center">
-                <button type="submit" class="mb-3 btn btn-primary">Book</button>
+                <button type="submit" class="mb-3 btn btn-primary">Book</button> <!-- Button to submit the booking form -->
             </div>
         </form>
     </section>
@@ -75,7 +75,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                The coupon code you entered is invalid or has expired. Please try again or contact support.
+                The coupon code you entered is invalid or has expired. Please try again or contact support. <!-- Message displayed when coupon is invalid -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -85,12 +85,12 @@
     </div>
 </div>
 
-<!-- Script para mostrar o modal -->
+<!-- Script to show the invalid coupon modal -->
 {% if show_invalid_coupon_modal %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var invalidCouponModal = new bootstrap.Modal(document.getElementById('invalidCouponModal'));
-        invalidCouponModal.show();
+        invalidCouponModal.show(); <!-- Show modal if coupon is invalid -->
     });
 </script>
 {% endif %}
