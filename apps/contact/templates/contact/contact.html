@@ -7,27 +7,31 @@
 {% include 'includes/messages.html' %}
 
 <main>
-    <!-- Seção com background image e texto -->
+    <!-- Section with background image and text -->
     <section class="hero-contact container w-100 mt-4">
         <div class="row d-flex flex-column align-items-start">
-            <div class="col-md-4 hero-contact-contect">
+            <div class="col-md-4 hero-contact-content">
+                <!-- Heading and description for contact section -->
                 <h2>Let Us Glam Up Your Day!</h2>
                 <div class="mt-5">
-                    <p>Got a question? Drop us a line! Our team is here to make your beauty dreams come true</p>
+                    <p>Got a question? Drop us a line! Our team is here to make your beauty dreams come true.</p>
                     <p>Fill out the form, and we’ll get back to you faster than a fresh blowout!</p>
                 </div>
             </div>
         </div>
     </section>
 
-
+    <!-- Contact Form Section -->
     <section class="contact-form-section container mt-4 border">
         <div class="row p-4">
             <div class="col-md-8 offset-md-2">
+                <!-- Contact form using Django's crispy forms for better styling -->
                 <form method="post" action="{% url 'contact' %}">
                     {% csrf_token %}
+                    <!-- Render the contact form with crispy tags for enhanced layout -->
                     {{ contact_form|crispy }}
-                    <div class="text-center ">
+                    <div class="text-center mt-4">
+                        <!-- Submit button for the contact form -->
                         <button type="submit" class="btn btn-primary btn-large">Send</button>
                     </div>
                 </form>
@@ -36,6 +40,5 @@
     </section>
 
 </main>
-
 
 {% endblock %}

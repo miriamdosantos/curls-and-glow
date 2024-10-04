@@ -1,24 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Services{% endblock %}
 {% load static %}
+
 {% block content %}
 <main>
+
+    <!-- Video Highlight Section -->
     <section class="service-video-highlight container mt-4">
         <div class="row d-flex">
             <div class="col-md-12">
+                <!-- Background video with autoplay, muted, and loop -->
                 <video autoplay muted loop>
                     <source src="{% static 'videos/services-video-back.mp4' %}" type="video/mp4">
+                    <!-- Fallback message for browsers that do not support the video tag -->
                     Your browser does not support the video tag.
                 </video>
-                <div class="text-overlay  p-3">
-                    <h1 class="text-uppercase">Our Expertise</h2>
-                        <p>Empowering your natural beauty, Curl & Glow transforms your look and boosts your confidence
-                        </p>
-                        <p>with personalized curls haircare in a welcoming environment</p>
+                <!-- Text overlay on top of the video -->
+                <div class="text-overlay p-3">
+                    <h1 class="text-uppercase">Our Expertise</h1>
+                    <p>Empowering your natural beauty, Curl & Glow transforms your look and boosts your confidence</p>
+                    <p>with personalized curls haircare in a welcoming environment.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Expertise and Pricing Section -->
     <section class="container-expertise container mt-3">
         <div class="row">
             <div class="col-sm-12">
@@ -27,14 +34,16 @@
         </div>
 
         <div class="row">
+            <!-- Loop through the services dynamically -->
             {% for service in services %}
             <div class="col-md-4 mb-3">
                 <div class="card h-100 border rounded p-4 d-flex flex-column justify-content-between">
                     <div class="d-flex align-items-start">
-                        <!-- Exibindo o ícone do serviço -->
+                        <!-- Service icon with a consistent size -->
                         <span class="me-2 fa-4x mt-5">
                             <i class="fa-solid {{ service.get_icon }}"></i>
                         </span>
+                        <!-- Service details: title, price, description -->
                         <div>
                             <h3 class="card-title">{{ service.title }}</h3>
                             <p class="card-text">Price: € {{ service.price }}</p>
@@ -43,6 +52,7 @@
                             </p>
                         </div>
                     </div>
+                    <!-- Service duration displayed at the bottom of the card -->
                     <div>
                         <p class="p-2 text-center">Duration: {{ service.get_duration_display }}</p>
                     </div>
@@ -50,17 +60,19 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- Call-to-action: Ready to transform your curls? -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="text-center mt-4 mb-3 blink-text">
                     <h2>Ready to transform your Curls?</h2>
+                    <!-- Conditional rendering based on user authentication status -->
                     {% if user.is_authenticated %}
-                    <a href="{% url 'home' %}" class="btn btn-base btn-dark-brown btn-small">Book Your Appointment
-                        Now!</a>
+                    <!-- Authenticated user can book an appointment -->
+                    <a href="{% url 'home' %}" class="btn btn-base btn-dark-brown btn-small">Book Your Appointment Now!</a>
                     {% else %}
-                    <!-- Botão para exibir o alert -->
-                    <button id="showModalButton" type="button" class="btn btn-base btn-dark-brown btn-small"
-                        data-bs-toggle="modal" data-bs-target="#alertModal">
+                    <!-- Unauthenticated user sees a modal prompt to log in or register -->
+                    <button id="showModalButton" type="button" class="btn btn-base btn-dark-brown btn-small" data-bs-toggle="modal" data-bs-target="#alertModal">
                         Book Your Appointment Now!
                     </button>
                     {% endif %}
@@ -68,39 +80,43 @@
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section: Display curl styles for inspiration -->
     <section class="container titleGallery-section">
-    <div class="row">
-        <!-- Texto -->
-        <div class="col-12 mb-4">
-            <h2 class="mt-4 mb-3">Explore Our Curl Styles</h2>
-            <p>Browse through our collection of curl styles and discover the endless possibilities for your hair.</p>
-            <p>Get inspired by our diverse range of curl types and finalizations.</p>
+        <div class="row">
+            <div class="col-12 mb-4">
+                <!-- Gallery title and description -->
+                <h2 class="mt-4 mb-3">Explore Our Curl Styles</h2>
+                <p>Browse through our collection of curl styles and discover the endless possibilities for your hair.</p>
+                <p>Get inspired by our diverse range of curl types and finalizations.</p>
+            </div>
         </div>
-    </div>
-    <!-- Galeria de Imagens -->
-    <div class="row ">
-        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery1.jpeg' %}" class="img-fluid" alt="Descrição da Imagem">
+
+        <!-- Image gallery -->
+        <div class="row">
+            <!-- Loop through and display each image in the gallery -->
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery1.jpeg' %}" class="img-fluid" alt="Curl Style 1">
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery2.jpg' %}" class="img-fluid" alt="Curl Style 2">
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery3.jpg' %}" class="img-fluid" alt="Curl Style 3">
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery4.jpg' %}" class="img-fluid" alt="Curl Style 4">
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery5.jpg' %}" class="img-fluid" alt="Curl Style 5">
+            </div>
+            <div class="col-sm-6 col-lg-4 mb-4 image-container">
+                <img src="{% static 'images/gallery6.jpg' %}" class="img-fluid" alt="Curl Style 6">
+            </div>
         </div>
-        <div class="col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery2.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
-        </div>
-        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery3.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
-        </div>
-        <div class=" col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery4.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery5.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4 image-container">
-            <img src="{% static 'images/gallery6.jpg' %}" class="img-fluid" alt="Descrição da Imagem">
-        </div>
-    </div>
-</section>
-    
-    <!-- Modal -->
+    </section>
+
+    <!-- Modal for unauthenticated users -->
     <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -109,8 +125,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Please <a href="{% url 'account_login' %}" class="alert-link">log in</a> or <a
-                        href="{% url 'account_signup' %}" class="alert-link">register</a> to book your appointment.
+                    <!-- Prompt user to log in or sign up -->
+                    Please <a href="{% url 'account_login' %}" class="alert-link">log in</a> or <a href="{% url 'account_signup' %}" class="alert-link">register</a> to book your appointment.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
