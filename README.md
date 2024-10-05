@@ -345,6 +345,14 @@ The project adopted a basic Kanban Board structure, which was divided into colum
 
 ## Features
 
+### Logo Design
+The logo for Curls & Glow reflects the brand's focus on elegance, simplicity, and beauty. The primary shape of the logo is a rounded square, but it can be adapted to appear circular through the application of CSS styles (e.g., border-radius) in web development. The logo is designed with a palette that includes soft, warm tones inspired by the rose gold and bronze hues, evoking a sense of sophistication and warmth.
+
+![Logo Page](documentation/images/features/logo-design.png)
+
+### Favicon Design
+The favicon was created using the company logo. This favicon sits in the web browser tab and instantly allows the user to recognise the webpage. This adds to the customer experience.
+
 ### Navigation Header
 The navigation bar is a consistent element across all pages, designed using Bootstrap and optimized for full responsiveness. The layout is divided into two main sections:
 
@@ -354,7 +362,7 @@ The navigation bar is a consistent element across all pages, designed using Boot
   - **Authenticated Users**: If a user is logged in, they will see a dropdown with their username. Within this dropdown, they can access options such as booking an appointment, viewing their bookings, or, if they are an admin, navigating to the admin dashboard.
   - **Unauthenticated Users**: If a user is not logged in, they will see a "Login/Register" button that drops down options for either signing up or logging in.
 
-Key aspects:
+#### Key aspects:
 - The navbar is sticky at the top, ensuring that it remains visible while users scroll through the content.
 - It uses the `navbar-toggler` for responsive handling on smaller screens, allowing the menu to collapse into a hamburger button.
 - Authentication options are dynamically displayed based on the user's login status, providing a more personalized experience.
@@ -482,7 +490,7 @@ The **Contact Page** allows users to reach out to the Curls & Glow team by submi
   - The page is built using Bootstrap’s grid system to ensure responsiveness across different device sizes.
   - It adapts seamlessly from mobile screens to larger desktop views, providing an optimal user experience.
 
-### Technical Stack
+#### Technical Stack
   
 - **Bootstrap 5**: Leveraged for responsive design and to maintain consistent styling throughout the page, especially for the grid system and form layout.
   
@@ -508,7 +516,7 @@ The admin dashboard for managing contact messages offers staff users the ability
   
 - **Delete Messages:** Staff can remove messages with a simple confirmation prompt to avoid accidental deletions.
 
-## Technical Details
+#### Technical Details
 
 - The inbox is built using Bootstrap’s grid system for responsiveness, with conditional display rules (`d-none d-md-table` and `d-md-none`) to toggle between table and card layouts.
   
@@ -519,12 +527,12 @@ The admin dashboard for managing contact messages offers staff users the ability
 This system enables efficient communication management, ensuring that customer inquiries are promptly addressed.
 
 <details>
-<summary>➡️ Contact </summary>
+<summary>➡️ Admin Dashboard - Messages Manegement </summary>
 
 ![Contact page](documentation/images/features/admin-dashboard.png)
 </details>
 
-### Booking Page
+## Booking Page
 
 The booking page allows users to schedule appointments with hair specialists through a user-friendly interface. Key features include:
 
@@ -537,7 +545,7 @@ The booking page allows users to schedule appointments with hair specialists thr
 
 - **Stylist Availability Section:** Displays the work days of each stylist, helping users understand when their preferred stylist is available.
 
-#### Technical Details
+### Technical Details
 
 - The page utilizes Bootstrap for responsive design, ensuring a seamless experience across devices.
   
@@ -552,11 +560,11 @@ This feature-rich booking page enhances user experience by simplifying appointme
 </details>
 
 
-#### Booking System Overview
+### Booking System Overview
 
 The booking system allows users to select a stylist, choose a date, and book an appointment seamlessly.
 
-### Booking Flow
+#### Booking Flow
 1. **Select Stylist and Date**: Users select a stylist and a date from the booking page. After submission, they are redirected to the **Select Time** page.
 2. **Select Time**: Users can choose from available time slots for their appointment. They will also enter their full name, email, and select a service. An optional coupon code can be entered here as well.
 3. **Form Submission**: Upon clicking the **Book** button, the form data is sent to the server for processing.
@@ -586,7 +594,7 @@ The Booking Confirmation Page is part of the Booking flow as well,  is responsib
 - **Stylist**: The stylist assigned to the booking.
 - **Offer**: Any promotional offer applied (if available).
 
-### Key Features:
+##### Key Features:
 - Utilizes Bootstrap for responsive design.
 - Conditionally displays the offer section if applicable.
 - Provides a clear call-to-action button for managing bookings.
@@ -597,11 +605,11 @@ The Booking Confirmation Page is part of the Booking flow as well,  is responsib
 ![Booking Confirmation page](documentation/images/features/booking-confirmation-page.png)
 </details>
 
-### My Bookings Page
+## My Bookings Page
 
 The  My Bookings page is designed to display a user's bookings, allowing them to manage their appointments effectively. It provides an overview of all the services they have scheduled, along with options for editing, deleting, and leaving testimonials for completed bookings.
 
-## Key Features:
+### Key Features:
 - **User Greeting**: Displays a personalized greeting to the logged-in user, encouraging them to check their appointments.
 - **Booking List**: Shows a responsive grid of cards, each representing a user's booking, with details including:
   - **Service**: The name of the service booked.
@@ -613,7 +621,7 @@ The  My Bookings page is designed to display a user's bookings, allowing them to
   - **Leave Testimonial**: Offers the option to leave feedback for completed bookings (disabled for upcoming appointments).
 - **No Bookings Message**: Displays a message encouraging users to make their first booking if no appointments are found.
 
-## Usage
+### Usage
 The template leverages Bootstrap for responsive design and includes conditional logic to handle the display of bookings and actions based on their status.
 
 <details>
@@ -622,6 +630,7 @@ The template leverages Bootstrap for responsive design and includes conditional 
 ![My bookings page](documentation/images/features/myBookings.png)
 </details>
 
+### My booking Page - Features
 #### Leave a Testimonial
 The Leave a Testimonial page is designed for users to submit their feedback after an appointment. This feedback is crucial for improving services and helps potential clients make informed decisions.
 
@@ -648,6 +657,7 @@ The Leave a Testimonial page is designed for users to submit their feedback afte
 The Delete Confirmg page provides the user with a confirmation prompt before permanently canceling a booking. This ensures that users are fully aware of the action they are about to perform and helps prevent accidental deletions.
 
 ##### Key Features:
+
 - **Booking Details**: The template displays essential information about the booking, such as:
   - **Service**: The type of service booked.
   - **Stylist**: The stylist assigned to the appointment.
@@ -659,7 +669,7 @@ The Delete Confirmg page provides the user with a confirmation prompt before per
   - **Cancel**: A secondary button allowing the user to back out of the deletion process and return to their bookings.
 
 <details>
-<summary>➡️ Leave Testimonial </summary>
+<summary>➡️ Delete Confirmation Booking </summary>
 
 ![Delete Confirmation Booking page](documentation/images/features/delete-confirmation-page.png)
 </details>
@@ -681,3 +691,146 @@ The Edit Booking page  is responsible for providing users with an interface to m
 
 ![Edit Booking page](documentation/images/features/edit-booking-page.png)
 </details>
+
+## Register Page
+
+The `Sign Up` page is used to present users with a registration form, allowing them to create an account on the platform. This template is integrated with **Django Allauth** for user authentication management.
+
+### Key Features:
+- **CSRF Protection**: The form is secured with a CSRF token to prevent cross-site request forgery attacks, ensuring secure interactions.
+
+- **Responsive Design**: The form and messages are fully responsive, ensuring a consistent experience across different device sizes, from mobile to desktop.
+- **Clear User Flow**:
+  - Presents a welcoming message, encouraging users to sign up.
+  - Includes a link for existing users to easily switch to the login page.
+
+### Form Features:
+- **Django Form Rendering**: The form fields are rendered using `{{ form | crispy }}`, utilizing Django’s `crispy forms` for better control over layout and styling of the form.
+- **Custom Button Styling**: The submit button is styled using a custom class (`page-buttons`), maintaining design consistency with the rest of the site.
+
+
+
+<details>
+<summary>➡️ Sign Up </summary>
+
+![Register page](documentation/images/features/register-page.png)
+</details>
+
+## Login In Page
+
+The `Sing Up ` is used for user authentication, allowing users to sign in to their accounts via the platform. It integrates with Django Allauth for user authentication management.
+
+### Key Features:
+- **CSRF Protection**: The form is secured with a CSRF token to prevent cross-site request forgery attacks.
+- **Internationalization**: All text is wrapped in `{% trans %}` and `{% blocktrans %}` tags to enable easy translation into other languages.
+- **Responsive Design**: The form layout is designed to be fully responsive, ensuring a consistent user experience across various screen sizes.
+- **Clear User Flow**:
+  - Provides a welcoming message for returning users.
+  
+  - Displays a prompt with a link to the registration page for users without an account.
+
+### Form Features:
+- **Django Form Rendering**: The form fields are rendered using `{{ form.as_p }}`, which ensures that they are displayed within `<p>` tags for proper spacing and alignment.
+
+
+
+<details>
+<summary>➡️ Sign In </summary>
+
+![Register page](documentation/images/features/login-page.png)
+</details>
+
+
+## Sign Out Page
+
+The `Sign Out`  is used to confirm whether the user wants to sign out of their account. This template integrates with Django Allauth to manage user authentication.
+
+### Key Features:
+- **CSRF Protection**: The form is secured with a CSRF token to prevent cross-site request forgery attacks.
+- **Internationalization**: All text is wrapped in `{% trans %}` tags to enable easy translation into other languages.
+- **Responsive Design**: The form layout is designed to be fully responsive, ensuring a consistent user experience across various screen sizes.
+- **Clear User Flow**: The user is prompted with a confirmation message asking if they are sure about signing out, and a single "Sign Out" button allows them to proceed.
+
+### Form Features:
+- **Django Form Rendering**: The form fields are rendered using `{{ form|crispy }}`, which ensures the form is styled consistently and neatly.
+- **Custom Button Styling**: The sign-out button is styled with a custom `page-buttons` class to maintain design consistency across the site.
+
+
+<details>
+<summary>➡️ Sign Out </summary>
+
+![Sign Out page](documentation/images/features/logout-page.png)
+</details>
+
+## Messages in All Views
+
+Messages have been implemented in all the main views of the project, providing clear feedback to the user. The following functionalities include appropriate messages:
+
+- **Book an Appointment**: Feedback on the success or failure of booking an appointment.
+- **My Bookings**: Messages when viewing or modifying already scheduled appointments.
+- **Services**: Feedback when interacting with the available services.
+- **Home**: Informative messages, such as updates or special offers.
+- **Contact**: Confirmation of message submissions or errors during the process.
+- **Admin Dashboard**: Relevant information for the admin, such as system updates or management alerts.
+
+<details>
+<summary>➡️ Message Alert </summary>
+
+![Sign Out page](documentation/images/features/logout-page.png)
+</details>
+
+
+## Custom Error Pages
+
+In this project, custom error pages have been designed to provide a user-friendly experience when encountering common HTTP errors such as **404**, **403**, and **500**. Each error page follows the styling and structure consistent with the rest of the project’s templates, ensuring that the user experience is maintained even in unexpected situations.
+
+<details>
+<summary>➡️ Message Alert </summary>
+
+![Sign Out page](documentation/images/features/logout-page.png)
+</details>
+
+## Future Features
+Implementing future features is essential to maintain website growth and user retention because they not only keep the platform relevant and competitive but also provide added value to users, enticing them to return and engage with fresh, exciting content and functionalities.
+
+### User Authentication with Social Media
+- **Description**:Implement a feature that allows users to log in using their social media accounts (e.g., Facebook, Google, etc.). This will enhance user experience by providing a quick and easy way to access their profiles without remembering additional passwords.
+
+- **Benefits**:
+  - Increases user registration and retention.
+  - Simplifies the login process.
+
+### Password Reset with Email Validation
+
+- **Description**: Add functionality for users to reset their passwords using their registered email addresses. This will include sending a password reset link via email for validation.
+
+- **Benefits**:
+  - Improves security and user convenience.
+  - Reduces the burden of remembering complex passwords.
+
+### Payment Integration for Bookings
+- **Description**:Future enhancements will include displaying pricing information for bookings and integrating a payment gateway for users to pay for their services directly through the website.
+
+- **Benefits**:
+  - Streamlines the booking process.
+  - Enhances the user experience by providing upfront pricing.
+
+### Adjustment of Admin Email Response Method
+
+- **Current Implementation**: The admin currently uses a template form via Formspree to respond to messages.
+
+- **Proposed Change**: Transition to a paid version of Formspree, which allows responses to multiple email addresses, ensuring that the application can function correctly and efficiently.
+
+### Email Notifications for Appointments and Updates
+
+- Sprint 4: Advanced Features and Finalization of Design - User Storie that have not been completed that should be considered for the next iteration of the project
+
+These features have been added to the Agile Project Board in the unresolved column so they can be implemented at a later date.
+
+- [US24: Social Media Login](https://github.com/miriamdosantos/curls-and-glow/issues/24)
+
+- [US25: Password Reset with Email Validation](https://github.com/miriamdosantos/curls-and-glow/issues/25)
+
+- [US27: Booking Payment Integration](https://github.com/miriamdosantos/curls-and-glow/issues/26)
+
+- [US28: Admin Email Response Improvement](https://github.com/miriamdosantos/curls-and-glow/issues/27)

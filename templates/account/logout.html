@@ -1,37 +1,47 @@
 {% extends "base.html" %}
 
-{% load i18n %}
+{% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
+{% block head_title %}Sign Out{% endblock head_title %}
 
 {% block content %}
-{% include 'includes/messages.html' %}
+{% include 'includes/messages.html' %} <!-- Including message alerts -->
+
+<!-- Hero section (add relevant image or content to enhance this section) -->
 <div class="container">
   <div class="row">
-    <div col-12 id="hero" aria-label="brown curl woman">
+    <div class="col-12" id="hero" aria-label="brown curl woman"> <!-- Ensure accessibility with aria-label -->
     </div>
   </div>
 </div>
-<div class="container ">
+
+<!-- Main container for the sign-out confirmation form -->
+<div class="container container-background">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <h1>{% trans "Sign Out" %}</h1>
-
-      <p>{% trans 'Are you sure you want to sign out?' %}</p>
+      <!-- Sign-out confirmation message -->
+      <h1>Sign Out</h1>
+      <p>Are you sure you want to sign out?</p>
     </div>
   </div>
+
+  <!-- Form to confirm sign-out -->
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
       <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
+        {% csrf_token %} <!-- Security: CSRF token to prevent attacks -->
+        {{ form|crispy }} <!-- Crispy form rendering for enhanced styling -->
+
+        <!-- Hidden field for redirecting if required -->
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="page-buttons" type="submit">{% trans 'Sign Out' %}</button>
+
+        <!-- Sign Out button styled with a custom class -->
+        <button class="page-buttons" type="submit">Sign Out</button>
       </form>
     </div>
   </div>
-
-
 </div>
+
 {% endblock content %}

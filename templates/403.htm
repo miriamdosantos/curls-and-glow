@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}403{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <section class="  row justify-content-center ">
+        <section class="  row justify-content-center ">
+            <div class="  col-md-8 text-center  py-5 container-background shadow-sm rounded ">
+                <h1 class="display-4">Forbidden</h1>
+                <p class="lead">Sorry, you don't have permission to access this page.</p>
+                <a href="{% url 'home' %}" class="btn btn-secondary btn-lg mt-4 mb-5">Go Back Home</a>
+                <section class="  row justify-content-center "></section>
+            </div>
+</div>
+{% endblock %}

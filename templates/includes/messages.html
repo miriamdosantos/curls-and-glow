@@ -1,11 +1,16 @@
-<!-- looping through messages -->
+<!-- includes/messages.html -->
+<!-- Looping through messages to display them dynamically in the UI -->
 <div class="container message-div">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+            <!-- Django message loop -->
             {% for message in messages %}
             <div class="alert {{ message.tags }} alert-info alert-dismissible fade show" id="msg" role="alert">
+                <!-- Displaying message content -->
                 {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
+                <!-- Close button for dismissing the message -->
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
             {% endfor %}

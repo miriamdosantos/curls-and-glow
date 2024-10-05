@@ -9,6 +9,6 @@ urlpatterns = [
     path('make-appointment/', views.make_appointment, name='booking'),  # Page to start booking
     path('my_bookings/', views.user_bookings, name='user_bookings'),
     path('select-time/', views.select_date, name='select_date'),  # Page to select date and time
-    path('edit-booking/<int:pk>/', BookingUpdateView.as_view(), name='edit_appointment')
+    path('edit-booking/<int:pk>/', BookingUpdateView.as_view(), name='edit_appointment'),
     
 ]

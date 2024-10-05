@@ -1,41 +1,57 @@
 {% extends "base.html" %}
 
-{% load i18n %}
+{% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
+{% block head_title %}Signup{% endblock head_title %}
 
 {% block content %}
 
-{% include 'includes/messages.html' %}
+{% include 'includes/messages.html' %} <!-- Including message alerts -->
+
+<!-- Hero section (image or intro text can be added here) -->
 <div class="container">
   <div class="row">
-    <div col-12 id="hero" aria-label="brown curl woman">
+    <div class="col-12" id="hero" aria-label="brown curl woman"> <!-- Ensure accessibility with aria-label -->
     </div>
   </div>
 </div>
-<div class="container container-background border ">
-  <div class="row  ">
+
+<!-- Main container for the sign-up section -->
+<div class="container container-background border">
+  <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <h1>{% trans "Sign Up" %}</h1>
+      <!-- Sign-up header -->
+      <h1>Sign Up</h1>
       <h2>Welcome to a new you!</h2>
 
-      <p>{% blocktrans %}
-        Sign up now to easily book services and acess excelsis offers.
-        Transform your beauty routine into a luxurious experiences with justa few clicks</p>
-      <p>If you already have an account, please <a href="{{ login_url }}">Sign In here</a>.{% endblocktrans %}</p>
+      <!-- Welcome message and sign-in suggestion -->
+      <p>
+        Sign up now to easily book services and access exclusive offers.
+        Transform your beauty routine into a luxurious experience with just a few clicks.
+      </p>
+      <p>
+        If you already have an account, please 
+        <a href="{{ login_url }}">Sign In here</a>.
+      </p>
+
+      <!-- Display general form errors with background color -->
+      
     </div>
   </div>
-  <div class="row  ">
-    <div class="col-md-6 offset-md-3 text-center ">
+
+  <!-- Form section for signing up -->
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <!-- Sign-up form -->
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="page-buttons" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        {% csrf_token %} <!-- Security: CSRF token to prevent attacks -->
+        {{ form | crispy }}
+        
+        <!-- Submit button styled with custom button class -->
+        <button class="page-buttons" type="submit">Sign Up &raquo;</button>
       </form>
     </div>
   </div>
 </div>
+
 {% endblock content %}

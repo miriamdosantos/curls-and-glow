@@ -304,6 +304,18 @@ class BookingUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('user_bookings')
  
+
+def force_500(request):
+    # Forçar um erro 500
+    return 1 / 0 
+def custom_403_view(request, exception):
+    return render(request, '403.html', status=403)
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500_view(request):
+    return render(request, '500.html', status=500)
 @login_required  
 def leave_testimonial(request, booking_id):
     booking = get_object_or_404(Booking, pk=booking_id)
