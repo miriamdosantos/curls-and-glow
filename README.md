@@ -3,7 +3,57 @@
 ### [Visit the deployed site here](https://curls-and-glow-079ed9c8815e.herokuapp.com/).
 
 Welcome to Curls & Glow, your ultimate destination for personalized haircare services and styling expertise. Our platform connects clients with professional stylists, showcasing a variety of services tailored to enhance and celebrate your natural curls. Explore our user-friendly interface to book appointments, browse through our offerings, and engage with our community of curl enthusiasts. Whether you’re looking for advice, inspiration, or a new look, Curls & Glow has everything you need to embrace your unique beauty.
-![banner-page](documentation/images/banner-page.png)
+![banner-page](documentation/images/testing/responsivess.png)
+
+## Table of Contents
+- [User Experience](#user-experience)
+  - [User Stories](#user-stories)
+    - [New User](#new-user)
+    - [Existing User](#existing-user)
+    - [Website Owner/Developer](#website-ownerdeveloper)
+  - [Additional Features](#additional-features)
+- [Site Goals](#site-goals)
+- [Scope](#scope)
+  - [EPIC - Initial Set Up](#epic-initial-set-up)
+  - [EPIC - Initial Design and Authentication System](#epic-initial-design-and-authentication-system)
+  - [EPIC - Scheduling System and Main Page Design](#epic-scheduling-system-and-main-page-design)
+  - [EPIC - Advanced Features and Finalization of Design](#epic-advanced-features-and-finalization-of-design)
+  - [EPIC - Testing and Documentation](#epic-testing-and-documentation)
+  - [EPIC - Deployment and Monitoring](#epic-deployment-and-monitoring)
+- [Design](#design)
+  - [Focus on User-Centric Design](#focus-on-user-centric-design)
+  - [Efficient Booking System](#efficient-booking-system)
+  - [Comprehensive Profile and Service Pages](#comprehensive-profile-and-service-pages)
+  - [Visual Consistency](#visual-consistency)
+  - [Mobile Responsiveness](#mobile-responsiveness)
+  - [Logo Design and Colour Scheme](#logo-design-and-colour-scheme)
+  - [Color Palette](#color-palette)
+  - [Design Aesthetic](#design-aesthetic)
+  - [Fonts](#fonts)
+- [Database Schema](#database-schema)
+  - [Models](#models)
+    - [Allauth User Model](#allauth-user-model)
+    - [UserProfile Model](#userprofile-model)
+    - [Service Model](#service-model)
+    - [Stylish Model](#stylish-model)
+    - [Availability Model](#availability-model)
+    - [Stylish_Availability Model](#stylish_availability-model)
+    - [Booking Model](#booking-model)
+    - [Offer Model](#offer-model)
+    - [Testimonial Model](#testimonial-model)
+    - [ContactMessage Model](#contactmessage-model)
+  - [Relationships Explained](#relationships-explained)
+- [Wireframes](#wireframes)
+  - [Home Page](#home-page)
+  - [Services Page](#services-page)
+  - [Contact Page](#contact-page)
+  - [Booking Page](#booking-page)
+  - [Login Page](#login-page)
+  - [Register Page](#register-page)
+  - [Sprints/Milestone Board](#sprints/milestone-board)
+  - [User Story Model](#user-story-model)
+  - [User Story Label](#user-story-label)
+
 
 ## User Experience
 
@@ -687,7 +737,7 @@ The Edit Booking page  is responsible for providing users with an interface to m
 - **Cancel**: A secondary, grey button (`btn-secondary`) that allows the user to cancel the edit and return to the "My Bookings" page without saving any changes.
 
 <details>
-<summary>➡️ Leave Testimonial </summary>
+<summary>➡️ Edit</summary>
 
 ![Edit Booking page](documentation/images/features/edit-booking-page.png)
 </details>
@@ -776,7 +826,7 @@ Messages have been implemented in all the main views of the project, providing c
 <details>
 <summary>➡️ Message Alert </summary>
 
-![Sign Out page](documentation/images/features/logout-page.png)
+![Sign Out page](documentation/images/features//message.jpg)
 </details>
 
 
@@ -785,9 +835,9 @@ Messages have been implemented in all the main views of the project, providing c
 In this project, custom error pages have been designed to provide a user-friendly experience when encountering common HTTP errors such as **404**, **403**, and **500**. Each error page follows the styling and structure consistent with the rest of the project’s templates, ensuring that the user experience is maintained even in unexpected situations.
 
 <details>
-<summary>➡️ Message Alert </summary>
+<summary>➡️ 404 Error</summary>
 
-![Sign Out page](documentation/images/features/logout-page.png)
+![Sign Out page](documentation/images/features/error-page.png)
 </details>
 
 ## Future Features
@@ -834,3 +884,7 @@ These features have been added to the Agile Project Board in the unresolved colu
 - [US27: Booking Payment Integration](https://github.com/miriamdosantos/curls-and-glow/issues/26)
 
 - [US28: Admin Email Response Improvement](https://github.com/miriamdosantos/curls-and-glow/issues/27)
+
+## Testing
+
+In depth testing and better organization, documentation can be found [here](TESTING.md).
