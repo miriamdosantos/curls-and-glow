@@ -1,27 +1,27 @@
-/* Reset */
+/* Reset styles for all elements */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-/* Global styles for body, headings, and paragraph */
+/* --- Global styles for body, headings, and paragraph --- */
 body {
-  font-family: 'Lato', sans-serif;
-  color: #3e2a25;
-  min-height: 100vh;
+  font-family: 'Lato', sans-serif; /* Primary font */
+  color: #3e2a25;/* Default text color */
+  min-height: 100vh;/* Full viewport height */
   display: flex;
-  flex-direction: column;
-  font-size: 1.2rem;
+  flex-direction: column;/* Stack elements vertically */
+  font-size: 1.2rem;/* Base font size */
 }
 
 a {
   text-decoration: none;
-  color: #c69c7b;
+  color: #c69c7b;/* Link color */
 }
 
 a:hover {
-  color: #b76e79;
+  color: #b76e79; /* Link hover color */
 }
 
 h1,
@@ -30,11 +30,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', serif;
-  color: #4A474E;
+  font-family: 'Playfair Display', serif; /* Secondary font for headings */
+  color: #4A474E;/* Heading color */
 
 }
 
+ /* Section-specific heading styles */
 .services-section h2,
 .offers-section h2:first-of-type,
 .stylishs-section h2,
@@ -47,13 +48,13 @@ h6 {
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;/* Paragraph font */
   font-size: 1.2rem;
-  color: #3e2a25;
+  color: #3e2a25;/* Paragraph color */
   margin-bottom: 1.2rem;
 }
 
-/* Header */
+/* --- Header styles --- */
 .logo {
   height: 100%;
   width: 75%;
@@ -76,12 +77,13 @@ p {
 .navbar-brand{
   margin:0;
 }
-/* Customização da Navegação */
+
+/* --- Navigation customization --- */
 #mainNav .navbar-toggler{
   margin-right:2.5rem;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Font for nav links */
   font-size: 1.2rem;
   color: #3e2a25;
   font-weight: 500;
@@ -91,14 +93,14 @@ p {
   max-width: 8rem;
 }
 
-/* Navbar Styles */
+/* Navbar item hover effect */
 .nav-item:hover,
 .image-container img:hover {
   font-weight: bolder;
-  transform: scale(1.1);
+  transform: scale(1.1);/* Scale effect on hover */
 }
 
-/* Custom CSS for Dropdown */
+/* Dropdown menu styles */
 .dropdown-toggle {
   border: none;
   background-color: #b76e79;
@@ -110,7 +112,7 @@ p {
 }
 
 .dropdown-toggle:hover {
-  background-color: #a65b6e;
+  background-color: #a65b6e;/* Dropdown hover color */
 }
 
 .dropdown-item {
@@ -118,6 +120,8 @@ p {
   padding: 5px 15px;
 }
 
+
+/* --- Main content area styles --- */
 #mainNav .dropdown-menu {
   background-color: #f7efe5;
   width: 100%;
@@ -144,21 +148,21 @@ ul.navbar-nav .nav-item {
 
 main {
   flex: 1 0 auto;
-  display: flex;
+  display: flex; /* Allow main to grow and fill space */
   flex-direction: column;
 }
 
-/* Hero styles */
+/* --- Hero section styles --- */
 #hero {
   margin: 1rem 0;
   height: 4.5rem;
   width: 100%;
   background: url('../images/hero-image.png') no-repeat left center/cover;
   position: relative;
-  background-color: #a65b6e;
-  /* Background colour if image doesn't load */
+  background-color: #a65b6e; /* Fallback color if image fails to load */
 }
 
+/* Contact image styles */
 .contact-image {
   width: 100%;
   height: 30rem;
@@ -169,7 +173,7 @@ main {
   height: 100%;
 }
 
-
+/* Container backgrounds and form sections */
 .container-background,
 .contact-form-section {
   background-color: #f7efe5;
@@ -180,7 +184,8 @@ main {
   margin-bottom: 3rem;
 }
 
-/* Seção da imagem de fundo (hero-contact) */
+/* Hero contact section styling with background image and text alignment*/
+
 .hero-contact {
   background: url("../images/contact.jpg") no-repeat center center/cover;
   height: 60vh;
@@ -191,6 +196,7 @@ main {
   opacity: 0.9;
 }
 
+/* Hero booking section styling with background image and overlay text*/
 .hero-booking {
   background: url("../images/booking-hero.jpg") no-repeat 80% center /cover;
   height: 65vh;
@@ -230,8 +236,7 @@ main {
 
 }
 
-/* Custom Carousel */
-/* Carousel Control Styles */
+/* --- Custom carousel control styles ---*/
 
 
 .carousel-item img {
@@ -272,7 +277,7 @@ main {
   filter: invert(1);
 }
 
-/* Definição de ícones padrão do Bootstrap */
+/* Costum Bostrap Icons Carousel  */
 .carousel-control-prev-icon::before {
   content: '\2039';
 }
@@ -281,12 +286,12 @@ main {
   content: '\203A';
 }
 
+/* --- Card styles for content display ---*/
 .card-body {
   min-height: 300px;
   max-height: 500px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
-  /* Borda suave */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -308,6 +313,7 @@ main {
 
 }
 
+/* --- Animation Keyframes --- */
 @keyframes blink {
   0% {
     opacity: 1;
@@ -325,10 +331,11 @@ main {
 .card-body>h3,
 .blink-text h2 {
   animation: blink 0.8s infinite;
-  /* Ajuste a duração e a repetição conforme necessário */
+  
 }
 
-/* --- https://www.youtube.com/watch?v=0TnO1GzKWPc -- */
+/* --- YouTube Video Reference --- */
+/* Video Reference: https://www.youtube.com/watch?v=0TnO1GzKWPc */
 @keyframes appear {
   from {
     opacity: 0;
@@ -343,52 +350,28 @@ main {
 
 .block {
   opacity: 0;
-  /* Inicialmente invisível */
+   /* Initially invisible */
   transform: scale(0.5);
-  /* Inicialmente reduzido */
+  /* Initially reduced */
   transition: opacity 1s, transform 1s;
-  /* Adiciona uma transição suave */
+  /* Adds smooth transition */
 }
 
 .block.animated {
   animation: appear 1s linear forwards;
-  /* Aplica a animação apenas uma vez */
+  /* Applies animation once */
 }
 
-@keyframes slideInImage {
-  from {
-    transform: translateX(-100%);
-    opacity: 0.5;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.block-slide {
-  transform: translateX(-100%);
-  opacity: 0.5;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-  /* Adiciona uma transição suave */
-}
-
-.block-slide.animated {
-  animation: slideInImage 1s ease-in-out forwards;
-  /* Aplica a animação apenas uma vez */
-}
 
 /*-- Service Page --- */
 .service-video-highlight {
   width: 100vw;
-  /* Ajuste a largura conforme necessário */
+  
 
 }
 
 .service-video-highlight video {
   width: 99%;
-  /* Ajusta o vídeo para ocupar 100% da largura da div */
   position: relative;
   object-fit: cover;
   opacity: 0.9;
@@ -398,7 +381,6 @@ main {
 .text-overlay {
   text-shadow: 2px 4px 5px rgb(244, 179, 179);
   background-color: rgba(183, 110, 121, 0.8);
-  /* Adjust text color */
   z-index: 1000;
   /* Ensures the text appears above the video */
   position: absolute;
@@ -417,7 +399,7 @@ main {
   display: block;
 }
 
-/* Gallery image style */
+/* --- Gallery Styles --- */
 .image-container {
   min-height: 80%;
 }
@@ -426,7 +408,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Faz a imagem se adaptar ao tamanho do contêiner sem distorção */
 }
 
 /* --------- Forms buttons styles --------- */
@@ -528,14 +509,7 @@ form input:disabled {
   font-size: 1.2rem;
 }
 
-
-
-
-
-
-
-
-/* Footer Styles */
+/* --- Footer Styles --- */
 footer {
   background-color: #f8f9fa;
   padding: 40px 0;
@@ -556,59 +530,59 @@ footer {
   color: #c69c7b;
 }
 
-/* Media Queries */
+/* --- Media Queries --- */
 
-/* Para telas menores ou iguais a 576px */
+
+  /* For screens smaller than or equal to 576px */
 @media (max-width: 576px) {
   .carousel-item img {
     max-height: 14rem;
   }
 }
 
-/* Para telas maiores que 575.98px */
+/* For screens larger than 575.98px */
 @media (min-width: 575.98px) {
   #hero {
     height: 8rem;
   }
-  
 }
 
-/* Para telas menores ou iguais a 768px */
+/* For screens smaller than or equal to 768px */
 @media (max-width: 768px) {
   #mainNav .dropdown-menu {
     min-height: 50%;
   }
+  
   #mainNav {
-    min-width: 25rem; /* Garante que a navbar ocupe toda a largura */
+    min-width: 25rem; /* Ensures that the navbar occupies the full width */
   }
 
   .text-overlay {
     top: 19rem;
   }
 
-  /* Esconde o parágrafo para telas menores ou iguais a 768px */
+  /* Hides the paragraph for screens smaller than or equal to 768px */
   .text-overlay p {
     display: none;
   }
+
   .make-appointment-section .stylish-image {
     max-width: 100%;
-    max-height: 100px; /* Reduz o tamanho da imagem em telas menores */
-}
-  
-
+    max-height: 100px; /* Reduces the size of the image on smaller screens */
+  }
 }
 
-/* Para telas maiores que 768px e até 1199.98px */
+/* For screens larger than 768px and up to 1199.98px */
 @media (min-width: 768px) and (max-width: 1199.98px) {
   #hero {
     height: 10rem;
   }
+
   #mainNav {
-    min-width: 1000px; /* Garante que a navbar ocupe toda a largura */
+    min-width: 1000px; /* Ensures that the navbar occupies the full width */
   }
 
-  /* Esconde o parágrafo para telas entre 768px e 1199.98px */
-
+  /* Hides the paragraph for screens between 768px and 1199.98px */
   .text-overlay p {
     display: none;
   }
@@ -622,21 +596,20 @@ footer {
   .hero-contact {
     height: 80vh;
     background: url("../images/contact.jpg") no-repeat top 30% center/cover;
-
   }
 }
 
-/* Para telas maiores que 1200px */
+/* For screens larger than 1200px */
 @media (min-width: 1200px) {
   #hero {
     height: 20rem;
   }
-  
+
   .card-body {
     height: 320px;
   }
 
-  /* Exibe o parágrafo somente para telas maiores que 1200px */
+  /* Displays the paragraph only for screens larger than 1200px */
   .text-overlay p {
     display: block;
   }
@@ -651,7 +624,5 @@ footer {
     left: 27rem;
     min-width: 200px;
     max-width: 400px;
-  }
-
-
+   }
 }

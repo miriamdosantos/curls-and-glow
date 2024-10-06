@@ -1,29 +1,22 @@
 {% extends "base.html" %} 
-{% block title %}Edit Booking{% endblock %}
+{% block title %}Delete booking{% endblock %}
 {% load static %} 
 {% load crispy_forms_tags %} 
 {% block content %}
 {% include 'includes/messages.html' %}
 
-<section class="contact-form-section container mt-4 border">
-    <h1 class="mt-3 text-uppercase text-center">Change Booking</h1> <!-- Title indicating booking update -->
-
-    <div class="row p-4">
-        <div class="col-md-8 offset-md-2">
-            <!-- Form for updating the booking details -->
-            <form method="post">
-                {% csrf_token %} <!-- CSRF token for security -->
-
-                {{ form|crispy }} <!-- Rendering the form using Crispy Forms for a clean layout -->
-
-                <!-- Submit button to save changes -->
-                <button type="submit" class="btn btn-primary mb-1">Save Changes</button>
-
-                <!-- Cancel button to return to My Bookings without saving -->
-                <a href="{% url 'user_bookings' %}" class="btn btn-secondary">Cancel</a>
-            </form>
-        </div>
-    </div>
-</section>
+<div class="delete-container mt-4 mb-4 container-background p-4">
+    <h1 class="delete-title text-uppercase">Delete Booking</h1> <!-- Title indicating booking deletion -->
+    
+    <!-- Warning message to confirm deletion of the specific booking -->
+    <h5 class="delete-message">Are you sure you want to cancel your booking for <strong>{{ booking.service.title }}</strong> with <strong>{{ booking.stylish.name }}</strong> on <strong>{{ booking.date_time|date:"F j, Y" }}</strong> from <strong>{{ booking.date_time|time:"H:i" }}?</strong></h5>
+    
+    <form method="post"> 
+        {% csrf_token %} <!-- CSRF token for security -->
+        {{form | crispy}}
+        <button type="submit" class="btn btn-danger">Delete</button> <!-- Submit button to confirm deletion -->
+        <a href="{% url 'user_bookings' %}" class="btn btn-secondary ml-2">Cancel</a> <!-- Cancel button to return without deleting -->
+    </form>
+</div>
 
 {% endblock %}

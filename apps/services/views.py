@@ -3,36 +3,50 @@ from apps.booking.models import Offer, Testimonial, Booking
 from apps.services.models import Service
 from apps.stylists.models import Stylist
 
-# Create your views here.
-def home (request):
-    offers = Offer.objects.all()
-    services = Service.objects.all().order_by('title')
-    stylists = Stylist.objects.all
-    testimonials = Testimonial.objects.all()
-    bookings = Booking.objects.all()
-    context ={
-        'offers':offers,
-        'services':services,
-        'stylists': stylists,
-        'testimonials': testimonials, 
-        'bookings': bookings
-    }
-    
-    return render(request, 'services/index.html', context)
 
-def services (request):
-    services = Service.objects.all().order_by('title')
+# Create your views here.
+def home(request):
+    """
+    View for the home page that displays offers, services, stylists, testimonials, and bookings.
+
+    Args:
+        request: The HTTP request object.
+
+    Returns:
+        Rendered HTML page with the context data.
+    """
+    offers = Offer.objects.all()  # Fetch all offers
+    services = Service.objects.all().order_by(
+        "title"
+    )  # Fetch and order all services by title
+    stylists = Stylist.objects.all()  # Fetch all stylists
+    testimonials = Testimonial.objects.all()  # Fetch all testimonials
+    bookings = Booking.objects.all()  # Fetch all bookings
 
     context = {
-        'services': services
+        "offers": offers,
+        "services": services,
+        "stylists": stylists,
+        "testimonials": testimonials,
+        "bookings": bookings,
     }
-    return render (request, 'services/services.html', context)
 
-def custom_403_view(request, exception):
-    return render(request, '403.html', status=403)
+    return render(request, "services/index.html", context)
 
-def custom_404_view(request, exception):
-    return render(request, '404.html', status=404)
 
-def custom_500_view(request):
-    return render(request, '500.html', status=500)
+def services(request):
+    """
+    View for the services page that displays all services.
+
+    Args:
+        request: The HTTP request object.
+
+    Returns:
+        Rendered HTML page with the context data containing services.
+    """
+    services = Service.objects.all().order_by(
+        "title"
+    )  # Fetch and order all services by title
+
+    context = {"services": services}
+    return render(request, "services/services.html", context)

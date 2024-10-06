@@ -1,4 +1,8 @@
 console.log('Script carregado corretamente');
+/* 
+ * Inspired by "HerBody"  available at https://github.com/michmattera/HerBody. 
+ * This work guided the implementation of to display autotmatic all the alerts generate in the project.
+ */
 
 document.addEventListener('DOMContentLoaded', function() {
     var alertNode = document.querySelector('.alert');
@@ -46,7 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+/* 
+ * Inspired by Youtube Tutorial, available at https://www.youtube.com/watch?v=0TnO1GzKWPc. 
+ * This work guided the implementation of scroll animation. 
+ */
 
 document.addEventListener("DOMContentLoaded", function() {
     const blocks = document.querySelectorAll('.block');

@@ -5,55 +5,6 @@
 Welcome to Curls & Glow, your ultimate destination for personalized haircare services and styling expertise. Our platform connects clients with professional stylists, showcasing a variety of services tailored to enhance and celebrate your natural curls. Explore our user-friendly interface to book appointments, browse through our offerings, and engage with our community of curl enthusiasts. Whether you’re looking for advice, inspiration, or a new look, Curls & Glow has everything you need to embrace your unique beauty.
 ![banner-page](documentation/images/testing/responsivess.png)
 
-## Table of Contents
-- [User Experience](#user-experience)
-  - [User Stories](#user-stories)
-    - [New User](#new-user)
-    - [Existing User](#existing-user)
-    - [Website Owner/Developer](#website-ownerdeveloper)
-  - [Additional Features](#additional-features)
-- [Site Goals](#site-goals)
-- [Scope](#scope)
-  - [EPIC - Initial Set Up](#epic-initial-set-up)
-  - [EPIC - Initial Design and Authentication System](#epic-initial-design-and-authentication-system)
-  - [EPIC - Scheduling System and Main Page Design](#epic-scheduling-system-and-main-page-design)
-  - [EPIC - Advanced Features and Finalization of Design](#epic-advanced-features-and-finalization-of-design)
-  - [EPIC - Testing and Documentation](#epic-testing-and-documentation)
-  - [EPIC - Deployment and Monitoring](#epic-deployment-and-monitoring)
-- [Design](#design)
-  - [Focus on User-Centric Design](#focus-on-user-centric-design)
-  - [Efficient Booking System](#efficient-booking-system)
-  - [Comprehensive Profile and Service Pages](#comprehensive-profile-and-service-pages)
-  - [Visual Consistency](#visual-consistency)
-  - [Mobile Responsiveness](#mobile-responsiveness)
-  - [Logo Design and Colour Scheme](#logo-design-and-colour-scheme)
-  - [Color Palette](#color-palette)
-  - [Design Aesthetic](#design-aesthetic)
-  - [Fonts](#fonts)
-- [Database Schema](#database-schema)
-  - [Models](#models)
-    - [Allauth User Model](#allauth-user-model)
-    - [UserProfile Model](#userprofile-model)
-    - [Service Model](#service-model)
-    - [Stylish Model](#stylish-model)
-    - [Availability Model](#availability-model)
-    - [Stylish_Availability Model](#stylish_availability-model)
-    - [Booking Model](#booking-model)
-    - [Offer Model](#offer-model)
-    - [Testimonial Model](#testimonial-model)
-    - [ContactMessage Model](#contactmessage-model)
-  - [Relationships Explained](#relationships-explained)
-- [Wireframes](#wireframes)
-  - [Home Page](#home-page)
-  - [Services Page](#services-page)
-  - [Contact Page](#contact-page)
-  - [Booking Page](#booking-page)
-  - [Login Page](#login-page)
-  - [Register Page](#register-page)
-  - [Sprints/Milestone Board](#sprints/milestone-board)
-  - [User Story Model](#user-story-model)
-  - [User Story Label](#user-story-label)
-
 
 ## User Experience
 
@@ -888,3 +839,194 @@ These features have been added to the Agile Project Board in the unresolved colu
 ## Testing
 
 In depth testing and better organization, documentation can be found [here](TESTING.md).
+
+## Bug Report - Curls & Glow
+
+This section outlines the major bugs and issues encountered during the development of the Curls & Glow project, including their causes, solutions, and current status.
+
+## 1. Bug: Carousel Layout Misalignment
+### Description:
+The carousel was not correctly displaying two cards per slide, leading to overlapping elements and a disorganized layout.
+### Cause:
+The initial structure of the carousel wasn't suited for multiple items per slide. An attempt to control the display using `forloop.counter` logic led to inconsistent rendering.
+### Solution:
+Adjusted the carousel code to ensure exactly two cards per slide without using complex conditionals in the template. The layout was restructured for flexibility.
+### Status:
+**Resolved** - The carousel now correctly displays two cards per slide.
+
+---
+
+## 2. Bug: Bootstrap Alert Not Displaying Consistently
+### Description:
+The Bootstrap alert triggered when an unauthenticated user clicked a button only worked on the first click. Subsequent clicks failed to show the alert.
+### Cause:
+The issue was caused by the alert element not being re-triggered due to the way it was being handled in JavaScript.
+### Solution:
+Initially, jQuery was used to display and hide the alert. However, after encountering the issue, the alert was replaced by a modal for more consistent behavior. The modal shows up every time the button is clicked.
+### Status:
+**Resolved** - Replaced the alert with a modal, which displays the message reliably on every button click.
+
+---
+
+## 3. Bug: Misalignment of `<p>` Elements in Service Cards
+### Description:
+The `<p>` elements inside the service cards appeared unevenly spaced, especially in cases where the last `<p>` was positioned significantly lower than the rest.
+### Cause:
+This was caused by inconsistent CSS rules for vertical alignment within the card structure.
+### Solution:
+Ensured the proper use of the `d-flex` and `row` classes to align elements side by side within the service cards. Adjustments were made to ensure all `<p>` elements maintain consistent spacing.
+### Status:
+**Resolved** - The text is now aligned properly inside the cards.
+
+---
+
+## 4. Bug: Scroll Animation Reapplying on Upward Scroll
+### Description:
+When scrolling back up on the page, the scroll animations were re-triggered, resulting in a jarring user experience.
+### Cause:
+Animations were not persisting in their final state once triggered, causing them to reapply unnecessarily when scrolling upwards.
+### Solution:
+CSS-only animations were kept, but a JavaScript solution was added to ensure that once an element has reached its animated state, it remains in that state, even when scrolling back up.
+### Status:
+**Resolved** - Animations now persist and are not re-triggered when scrolling up.
+
+---
+
+## 5. Bug: Service Ordering in Template
+### Description:
+The services displayed in the wrong order on the Curls & Glow template.
+### Cause:
+The ordering was not explicitly defined in the query fetching the services.
+### Solution:
+Updated the view to order the services based on a desired field (e.g., `created_at` or another appropriate attribute) to control the display order.
+### Status:
+**Resolved** - Services now display in the correct order as per the business logic.
+
+---
+
+## 6. Bug: Modal Not Triggering for Unauthenticated Users
+### Description:
+The login prompt modal failed to trigger consistently when unauthenticated users clicked the 'Book Appointment' button.
+### Cause:
+An issue with the event binding in JavaScript was preventing the modal from showing more than once.
+### Solution:
+The JavaScript was updated to ensure that the modal event is correctly bound to the button and triggers on every click, regardless of the user's previous interactions.
+### Status:
+**Resolved** - The modal now triggers every time the 'Book Appointment' button is clicked, prompting unauthenticated users to log in.
+
+---
+
+## 7. Bug: Image Size Inconsistencies in the 'Stylists' Section
+### Description:
+The images in the 'Stylists' section did not maintain a consistent size, causing layout shifts.
+### Cause:
+Lack of consistent size constraints in the CSS for the stylist images.
+### Solution:
+Applied fixed dimensions and responsive behavior to ensure that all stylist images maintain a consistent size across different devices.
+### Status:
+**Resolved** - Images are now displayed consistently without causing layout issues.
+
+---
+
+## 8. Bug: Video Section Text Overlay Misalignment
+### Description:
+The text overlay in the video section of the services page was not aligning correctly with the background video.
+### Cause:
+CSS positioning issues with the text overlay in relation to the video element.
+### Solution:
+Adjusted the CSS to ensure proper alignment and layering of the text over the video, ensuring that it remains centered and legible across different screen sizes.
+### Status:
+**Resolved** - The text overlay is now correctly aligned with the background video.
+
+---
+
+## 9. Bug: Email Sending via Django SMTP Fails
+### Description:
+Emails failed to send via the Django SMTP backend when using Google's SMTP servers for sending email notifications (e.g., booking confirmations).
+### Cause:
+Google updated its policy, making it harder for third-party applications to send emails using less secure apps, blocking the ability to authenticate and send emails through Gmail accounts without enabling more secure options (OAuth).
+### Solution:
+After encountering this issue, a decision was made to either switch to a different email provider (such as SendGrid or Mailgun) or configure Google to use OAuth2 for secure email sending. However, at the time, Google's new security requirements complicated the setup for third-party apps.
+### Status:
+**Unresolved** - Still investigating the most secure and reliable solution for sending emails via Django. Considering using a third-party email service provider.
+
+---
+
+These were the primary bugs encountered during development. All issues except the email sending have been resolved, ensuring the smooth functioning of the Curls & Glow application.
+
+## Technologies And Languages
+ - HTML
+ - CSS
+ - JavaScript
+ - Bootstrap
+ - Python
+ - Django
+
+## Frameworks, Packages & Programs Use
+ 1. asgiref==3.7.2: ASGI stands for Asynchronous Server Gateway Interface, and asgiref provides a reference implementation for ASGI servers and applications. It's used to build asynchronous web applications.
+ 2. cloudinary==1.32.0: Cloudinary is a cloud-based media management platform. The Python SDK (cloudinary package) enables seamless integration and manipulation of images and videos in web applications.
+ 3. crispy-bootstrap5==0.7: This package is an extension for Django's crispy-forms library, providing templates and layout styles for rendering forms using Bootstrap 5.
+ 4. j-database-url==0.5.0: dj-database-url simplifies the configuration of Django database settings by allowing you to use a URL (e.g., for Heroku) instead of manually configuring database settings.
+ 5. dj3-cloudinary-storage==0.0.6: This package provides a custom Django storage backend for handling media files on Cloudinary in Django applications.
+ 6. Django==3.2.19: Django is a high-level Python web framework that allows you to build web applications rapidly and securely. Version 3.2.19 corresponds to a specific release of Django.
+ 7. django-crispy-forms==2.0: Crispy-forms is a Django application that helps you easily render Django forms with a DRY (Don't Repeat Yourself) methodology. Version 2.0 corresponds to a specific release of the package.
+ gunicorn==20.1.0: Gunicorn is a popular WSGI (Web Server Gateway Interface) HTTP server for running Django and other Python web applications.
+
+ 8. psycopg2==2.9.6: Psycopg2 is a PostgreSQL adapter for Python, allowing Django to communicate with PostgreSQL databases.
+
+9. pytz==2023.3: Pytz provides time zone support in Python. Version 2023.3 corresponds to a specific release of the package.
+
+10. sqlparse==0.4.4: Sqlparse is a non-validating SQL parser for Python, commonly used in development and debugging of database-related applications.
+
+11. python-dateutil==2.8.2: The python-dateutil library provides various utilities for working with dates and times in Python.
+
+12. django-widget-tweaks==1.4.12: Django-widget-tweaks allows you to customize form widgets' attributes and classes in Django templates more easily.
+
+13. black==24.4.2:
+Black is a code formatter that enforces a consistent coding style in Python projects. It automatically reformats code to follow PEP 8 standards, improving readability and reducing code review overhead.
+
+14. flake8==7.1.1:
+Flake8 is a tool for enforcing Python's PEP 8 coding standards and checking for potential issues, such as unused variables, syntax errors, and inconsistent formatting. It also integrates well with other linters for more comprehensive code checks.
+
+## Programs used:
+The developer used different external programs throughout the development of this project. There are all external programs used :
+
+Font Awesome
+Font Awesome was used to import icons (e.g. social media icons).
+Visual Studio Code
+Vs was used for writing code, committing, and then pushing to GitHub.
+GitHub
+GitHub was used to store the readme and testing files, along with all code after pushing.
+Heroku
+Heroku was used to deploy the application.
+Cloudinary
+Cloudinary was used to store all static files.
+Canva
+Canva was used to create the logo used for the website.
+Am I Responsive?
+Am I Responsive was used to see responsive design throughout the process and to generate mockup imagery to be used.
+Dbdiagram.io
+To create the databases molde
+
+## Deployment
+
+## The following are the steps I went through to deploy my live site:
+
+The site was deployed using Heroku. The steps to deploy are as follows:
+
+1. Go to [Heroku](https://www.heroku.com/).
+2. Go to 'New' and select 'Create a new app'.
+3. Input your app name and click 'Create app'.
+4. Navigate to the 'Settings' tab.
+5. In the **Config Vars** section, enter the following values:
+   - **SECRET_KEY**: The Secret Key for your project.
+   - **DATABASE_URL**: The URL from your ElephantSQL dashboard.
+   - **CLOUDINARY_URL**: The URL from your Cloudinary dashboard.
+   - **PORT**: 8000.
+6. Navigate to the 'Deploy' section.
+7. Connect to GitHub, search for your repository, and confirm the connection.
+8. Choose a branch to deploy.
+9. Your app should now be available to view. 
+
+You can choose whether to have your app automatically redeploy with every push or keep it manual.
+

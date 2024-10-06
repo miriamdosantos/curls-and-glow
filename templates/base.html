@@ -11,9 +11,16 @@
 <html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curls & Glow</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Curls & Glow - Personalized haircare services for curly hair">
+    <meta name="keywords" content="curly hair, personalized haircare, salon, beauty, curls, hair treatment">
+    <meta name="author" content="Miriam McCay">
+    <meta name="robots" content="index, follow">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,26 +41,32 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Curls&Glow-Finalization{% endblock %}</title>
 </head>
 
-
 <body>
+    <!-- Navigation Bar -->
+    <!--
+    Inspired by "HerBody"
+    URL: https://her-body.herokuapp.com/
+    Description: This project was used as a reference for implementing the structure and design of the Navbar and Footers features. The approach of the project was inspirational in how I organized and styled our own site. Thanks to the author for sharing their work!
+    -->
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" id="mainNav">
         <div class="container d-flex justify-content-between align-items-center">
-            <!-- Logo à esquerda -->
+            <!-- Logo on the left -->
             <div class="logo-div mr-0">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static 'images/curls-and-glow-logo.png' %}" alt="logo" class="logo">
                 </a>
             </div>
 
-            <!-- Botão Hamburger à direita em telas menores -->
+            <!-- Hamburger button on the right for smaller screens -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navegação colapsável -->
+            <!-- Collapsible navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav text-uppercase me-auto">
                     <li class="nav-item">
@@ -67,7 +80,7 @@
                     </li>
                 </ul>
 
-                <!-- Dropdown para usuários autenticados -->
+                <!-- Dropdown for authenticated users -->
                 {% if user.is_authenticated %}
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuLink"
@@ -75,11 +88,11 @@
                         {{ user.username }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <!-- Se o usuário for staff, exibe apenas o link do dashboard -->
+                        <!-- If the user is staff, show only the dashboard link -->
                         {% if user.is_staff %}
                         <li><a class="dropdown-item" href="{% url 'admin_message_list' %}">Admin Dashboard</a></li>
                         {% else %}
-                        <!-- Links para usuários autenticados que não são staff -->
+                        <!-- Links for authenticated users who are not staff -->
                         <li><a class="dropdown-item" href="{% url 'booking' %}">Book an appointment</a></li>
                         <li><a class="dropdown-item" href="{% url 'user_bookings' %}">My bookings</a></li>
                         {% endif %}
@@ -87,7 +100,7 @@
                     </ul>
                 </div>
                 {% else %}
-                <!-- Dropdown para usuários não autenticados -->
+                <!-- Dropdown for unauthenticated users -->
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle text-uppercase" type="button"
                         id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,11 +112,9 @@
                     </ul>
                 </div>
                 {% endif %}
-
             </div>
         </div>
     </nav>
-
 
     <!-- Main content -->
     <main>
@@ -117,10 +128,12 @@
     </main>
 
     <!-- Footer -->
+    
+
     <footer class="text-dark text-center text-lg-start bg-light">
         <div class="container p-4">
             <div class="row mt-4">
-                <!-- Primeira seção links sociais -->
+                <!-- First section for social links -->
                 <div class="col-lg-4 col-md-12 mb-4 mb-md-0 footer-text">
                     <h5 class="text-uppercase mb-4 footer-title">Follow us</h5>
                     <div class="social-links mt-5">
@@ -132,7 +145,7 @@
                             title="Link for Instagram (opens in a new page)"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <!-- Segunda seção - informações de contato -->
+                <!-- Second section - contact information -->
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-text">
                     <h5 class="text-uppercase mb-4 footer-title">Contact Us</h5>
                     <ul class="fa-ul" style="margin-left: 1.65rem">
@@ -150,7 +163,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Terceira seção - horários de funcionamento -->
+                <!-- Third section - opening hours -->
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-text">
                     <h5 class="text-uppercase text-center mb-4 footer-title">Opening Hours</h5>
                     <table class="table text-center footer-text">
@@ -160,12 +173,24 @@
                                 <td>Closed</td>
                             </tr>
                             <tr>
-                                <td>Tue-Fri:</td>
-                                <td>9am - 7pm</td>
+                                <td>Tue:</td>
+                                <td>10 AM – 6 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Wed:</td>
+                                <td>10 AM – 6 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Thu:</td>
+                                <td>10 AM – 8 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Fri:</td>
+                                <td>10 AM – 8 PM</td>
                             </tr>
                             <tr>
                                 <td>Sat:</td>
-                                <td>9am - 8pm</td>
+                                <td>10 AM – 6 PM</td>
                             </tr>
                             <tr>
                                 <td>Sun:</td>
@@ -187,7 +212,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
         <script src="{% static 'js/script.js' %}"></script>
-</footer>
+    </footer>
 </body>
 
 </html>
